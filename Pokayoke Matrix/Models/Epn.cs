@@ -17,7 +17,8 @@ namespace Pokayoke_Matrix.Models
         public string created_at { get; set; } = DateTime.Now.ToShortDateString();
         public string  updated_at { get; set; } = DateTime.Now.ToShortDateString();
 
+        public string fullName { get; set; }
 
-        public int CountOfPokayoke { get; set; } = 1;
+        public int CountOfPokayoke { get; set; } 
     }
 }
