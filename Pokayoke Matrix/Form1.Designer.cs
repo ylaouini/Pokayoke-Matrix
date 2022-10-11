@@ -37,28 +37,37 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnLogin = new System.Windows.Forms.Button();
             this.lblFullName = new Guna.UI.WinForms.GunaLabel();
             this.lblPersonnelID = new Guna.UI.WinForms.GunaLabel();
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabHome = new System.Windows.Forms.TabPage();
             this.tabClips = new System.Windows.Forms.TabPage();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.txtSearchClips = new Guna.UI.WinForms.GunaTextBox();
             this.dgvClips = new Guna.UI.WinForms.GunaDataGridView();
             this.tabConnectors = new System.Windows.Forms.TabPage();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.txtSearchCon = new Guna.UI.WinForms.GunaTextBox();
             this.dgvConnectors = new Guna.UI.WinForms.GunaDataGridView();
             this.tabUsers = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -73,6 +82,14 @@
             this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
             this.dgvUsers = new Guna.UI.WinForms.GunaDataGridView();
             this.tabConfig = new System.Windows.Forms.TabPage();
+            this.comboBoxProjects = new Guna.UI.WinForms.GunaComboBox();
+            this.lblEpnConfig = new Guna.UI.WinForms.GunaLabel();
+            this.dgvPokayoke = new Guna.UI.WinForms.GunaDataGridView();
+            this.dgvNotPokayoke = new Guna.UI.WinForms.GunaDataGridView();
+            this.gunaTextBox1 = new Guna.UI.WinForms.GunaTextBox();
+            this.dgvAllConfig = new Guna.UI.WinForms.GunaDataGridView();
+            this.btnRemovePokayoke = new Guna.UI.WinForms.GunaButton();
+            this.btnAddPokayoke = new Guna.UI.WinForms.GunaButton();
             this.tabEPN = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -84,69 +101,61 @@
             this.switchIsClip = new Guna.UI.WinForms.GunaWinSwitch();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.lblClipSupport = new Guna.UI.WinForms.GunaLabel();
+            this.btnAddEPN = new Guna.UI.WinForms.GunaButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.gunaLabel12 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel11 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel10 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel9 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel8 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
-            this.btnAddEPN = new Guna.UI.WinForms.GunaButton();
-            this.gunaPanel2 = new Guna.UI.WinForms.GunaPanel();
-            this.gunaCircleButton3 = new Guna.UI.WinForms.GunaCircleButton();
-            this.gunaCircleButton2 = new Guna.UI.WinForms.GunaCircleButton();
-            this.gunaCircleButton1 = new Guna.UI.WinForms.GunaCircleButton();
-            this.gunaPanel3 = new Guna.UI.WinForms.GunaPanel();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.gunaDataGridView1 = new Guna.UI.WinForms.GunaDataGridView();
-            this.gunaTextBox1 = new Guna.UI.WinForms.GunaTextBox();
-            this.gunaDataGridView2 = new Guna.UI.WinForms.GunaDataGridView();
-            this.gunaDataGridView3 = new Guna.UI.WinForms.GunaDataGridView();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
-            this.gunaButton2 = new Guna.UI.WinForms.GunaButton();
-            this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
             this.picBackSide = new Guna.UI.WinForms.GunaPictureBox();
             this.picBottomSide = new Guna.UI.WinForms.GunaPictureBox();
             this.picTopSide = new Guna.UI.WinForms.GunaPictureBox();
             this.picLeftSide = new Guna.UI.WinForms.GunaPictureBox();
             this.picRightSide = new Guna.UI.WinForms.GunaPictureBox();
             this.picfrontSide = new Guna.UI.WinForms.GunaPictureBox();
-            this.gunaLabel13 = new Guna.UI.WinForms.GunaLabel();
+            this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
+            this.gunaPanel2 = new Guna.UI.WinForms.GunaPanel();
+            this.gunaCircleButton3 = new Guna.UI.WinForms.GunaCircleButton();
+            this.gunaCircleButton2 = new Guna.UI.WinForms.GunaCircleButton();
+            this.gunaCircleButton1 = new Guna.UI.WinForms.GunaCircleButton();
+            this.gunaPanel3 = new Guna.UI.WinForms.GunaPanel();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.gunaPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabClips.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClips)).BeginInit();
             this.tabConnectors.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConnectors)).BeginInit();
             this.tabUsers.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.tabConfig.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPokayoke)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNotPokayoke)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAllConfig)).BeginInit();
             this.tabEPN.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllEpn)).BeginInit();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.gunaPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaDataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaDataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaDataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBackSide)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBottomSide)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTopSide)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLeftSide)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRightSide)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picfrontSide)).BeginInit();
+            this.gunaPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLogin
@@ -200,6 +209,62 @@
             this.gunaPanel1.Size = new System.Drawing.Size(1155, 56);
             this.gunaPanel1.TabIndex = 7;
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox4.Image = global::Pokayoke_Matrix.Properties.Resources.minimize__3_;
+            this.pictureBox4.Location = new System.Drawing.Point(1036, 12);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox4.TabIndex = 31;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox3.Image = global::Pokayoke_Matrix.Properties.Resources.maximize;
+            this.pictureBox3.Location = new System.Drawing.Point(1074, 12);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox3.TabIndex = 30;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.Image = global::Pokayoke_Matrix.Properties.Resources.minimize__4_;
+            this.pictureBox2.Location = new System.Drawing.Point(998, 12);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox2.TabIndex = 29;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = global::Pokayoke_Matrix.Properties.Resources.cancel__1_;
+            this.pictureBox1.Location = new System.Drawing.Point(1112, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 28;
+            this.pictureBox1.TabStop = false;
+            // 
+            // gunaPictureBox1
+            // 
+            this.gunaPictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
+            this.gunaPictureBox1.Image = global::Pokayoke_Matrix.Properties.Resources.profile__1_;
+            this.gunaPictureBox1.Location = new System.Drawing.Point(926, 3);
+            this.gunaPictureBox1.Name = "gunaPictureBox1";
+            this.gunaPictureBox1.Size = new System.Drawing.Size(54, 50);
+            this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.gunaPictureBox1.TabIndex = 27;
+            this.gunaPictureBox1.TabStop = false;
+            // 
             // tabControl1
             // 
             this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -235,6 +300,8 @@
             // tabClips
             // 
             this.tabClips.BackColor = System.Drawing.SystemColors.Control;
+            this.tabClips.Controls.Add(this.pictureBox6);
+            this.tabClips.Controls.Add(this.txtSearchClips);
             this.tabClips.Controls.Add(this.dgvClips);
             this.tabClips.Location = new System.Drawing.Point(4, 28);
             this.tabClips.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -243,6 +310,39 @@
             this.tabClips.Size = new System.Drawing.Size(1105, 638);
             this.tabClips.TabIndex = 1;
             this.tabClips.Text = "Clips";
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox6.BackColor = System.Drawing.SystemColors.Window;
+            this.pictureBox6.Image = global::Pokayoke_Matrix.Properties.Resources.magnifying_glass;
+            this.pictureBox6.Location = new System.Drawing.Point(25, 25);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox6.TabIndex = 32;
+            this.pictureBox6.TabStop = false;
+            // 
+            // txtSearchClips
+            // 
+            this.txtSearchClips.BackColor = System.Drawing.Color.Transparent;
+            this.txtSearchClips.BaseColor = System.Drawing.Color.White;
+            this.txtSearchClips.BorderColor = System.Drawing.Color.Silver;
+            this.txtSearchClips.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSearchClips.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtSearchClips.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.txtSearchClips.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtSearchClips.Font = new System.Drawing.Font("AktivGrotesk-Light", 12F);
+            this.txtSearchClips.Location = new System.Drawing.Point(14, 19);
+            this.txtSearchClips.Margin = new System.Windows.Forms.Padding(0);
+            this.txtSearchClips.Name = "txtSearchClips";
+            this.txtSearchClips.PasswordChar = '\0';
+            this.txtSearchClips.Radius = 15;
+            this.txtSearchClips.SelectedText = "";
+            this.txtSearchClips.Size = new System.Drawing.Size(256, 37);
+            this.txtSearchClips.TabIndex = 31;
+            this.txtSearchClips.TextOffsetX = 35;
+            this.txtSearchClips.TextChanged += new System.EventHandler(this.txtSearchClips_TextChanged);
             // 
             // dgvClips
             // 
@@ -314,6 +414,8 @@
             // 
             // tabConnectors
             // 
+            this.tabConnectors.Controls.Add(this.pictureBox5);
+            this.tabConnectors.Controls.Add(this.txtSearchCon);
             this.tabConnectors.Controls.Add(this.dgvConnectors);
             this.tabConnectors.Location = new System.Drawing.Point(4, 28);
             this.tabConnectors.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -322,6 +424,39 @@
             this.tabConnectors.TabIndex = 2;
             this.tabConnectors.Text = "Connectors";
             this.tabConnectors.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox5.BackColor = System.Drawing.SystemColors.Window;
+            this.pictureBox5.Image = global::Pokayoke_Matrix.Properties.Resources.magnifying_glass;
+            this.pictureBox5.Location = new System.Drawing.Point(15, 22);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox5.TabIndex = 30;
+            this.pictureBox5.TabStop = false;
+            // 
+            // txtSearchCon
+            // 
+            this.txtSearchCon.BackColor = System.Drawing.Color.Transparent;
+            this.txtSearchCon.BaseColor = System.Drawing.Color.White;
+            this.txtSearchCon.BorderColor = System.Drawing.Color.Silver;
+            this.txtSearchCon.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSearchCon.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtSearchCon.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.txtSearchCon.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtSearchCon.Font = new System.Drawing.Font("AktivGrotesk-Light", 12F);
+            this.txtSearchCon.Location = new System.Drawing.Point(4, 16);
+            this.txtSearchCon.Margin = new System.Windows.Forms.Padding(0);
+            this.txtSearchCon.Name = "txtSearchCon";
+            this.txtSearchCon.PasswordChar = '\0';
+            this.txtSearchCon.Radius = 15;
+            this.txtSearchCon.SelectedText = "";
+            this.txtSearchCon.Size = new System.Drawing.Size(256, 37);
+            this.txtSearchCon.TabIndex = 23;
+            this.txtSearchCon.TextOffsetX = 35;
+            this.txtSearchCon.TextChanged += new System.EventHandler(this.txtSearchCon_TextChanged);
             // 
             // dgvConnectors
             // 
@@ -390,6 +525,7 @@
             this.dgvConnectors.ThemeStyle.RowsStyle.Height = 24;
             this.dgvConnectors.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvConnectors.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvConnectors.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConnectors_CellDoubleClick);
             // 
             // tabUsers
             // 
@@ -629,13 +765,15 @@
             // 
             // tabConfig
             // 
-            this.tabConfig.Controls.Add(this.gunaLabel13);
-            this.tabConfig.Controls.Add(this.gunaButton2);
-            this.tabConfig.Controls.Add(this.gunaButton1);
-            this.tabConfig.Controls.Add(this.gunaDataGridView3);
-            this.tabConfig.Controls.Add(this.gunaDataGridView2);
+            this.tabConfig.Controls.Add(this.pictureBox7);
+            this.tabConfig.Controls.Add(this.comboBoxProjects);
+            this.tabConfig.Controls.Add(this.lblEpnConfig);
+            this.tabConfig.Controls.Add(this.dgvPokayoke);
+            this.tabConfig.Controls.Add(this.dgvNotPokayoke);
             this.tabConfig.Controls.Add(this.gunaTextBox1);
-            this.tabConfig.Controls.Add(this.gunaDataGridView1);
+            this.tabConfig.Controls.Add(this.dgvAllConfig);
+            this.tabConfig.Controls.Add(this.btnRemovePokayoke);
+            this.tabConfig.Controls.Add(this.btnAddPokayoke);
             this.tabConfig.Location = new System.Drawing.Point(4, 28);
             this.tabConfig.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabConfig.Name = "tabConfig";
@@ -643,6 +781,299 @@
             this.tabConfig.TabIndex = 4;
             this.tabConfig.Text = "Configuration";
             this.tabConfig.UseVisualStyleBackColor = true;
+            // 
+            // comboBoxProjects
+            // 
+            this.comboBoxProjects.BackColor = System.Drawing.Color.Transparent;
+            this.comboBoxProjects.BaseColor = System.Drawing.Color.White;
+            this.comboBoxProjects.BorderColor = System.Drawing.Color.Silver;
+            this.comboBoxProjects.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxProjects.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxProjects.FocusedColor = System.Drawing.Color.Empty;
+            this.comboBoxProjects.Font = new System.Drawing.Font("AktivGrotesk-Light", 12F);
+            this.comboBoxProjects.ForeColor = System.Drawing.Color.Black;
+            this.comboBoxProjects.FormattingEnabled = true;
+            this.comboBoxProjects.Location = new System.Drawing.Point(859, 104);
+            this.comboBoxProjects.Name = "comboBoxProjects";
+            this.comboBoxProjects.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.comboBoxProjects.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.comboBoxProjects.Size = new System.Drawing.Size(204, 27);
+            this.comboBoxProjects.TabIndex = 28;
+            this.comboBoxProjects.SelectedIndexChanged += new System.EventHandler(this.comboBoxProjects_SelectedIndexChanged);
+            // 
+            // lblEpnConfig
+            // 
+            this.lblEpnConfig.AutoSize = true;
+            this.lblEpnConfig.Font = new System.Drawing.Font("AktivGrotesk-Light", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEpnConfig.Location = new System.Drawing.Point(649, 36);
+            this.lblEpnConfig.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEpnConfig.Name = "lblEpnConfig";
+            this.lblEpnConfig.Size = new System.Drawing.Size(192, 37);
+            this.lblEpnConfig.TabIndex = 27;
+            this.lblEpnConfig.Text = "EPN123456";
+            // 
+            // dgvPokayoke
+            // 
+            this.dgvPokayoke.AllowUserToAddRows = false;
+            this.dgvPokayoke.AllowUserToDeleteRows = false;
+            this.dgvPokayoke.AllowUserToResizeRows = false;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            this.dgvPokayoke.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            this.dgvPokayoke.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPokayoke.BackgroundColor = System.Drawing.Color.White;
+            this.dgvPokayoke.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvPokayoke.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvPokayoke.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("AktivGrotesk-Regular", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPokayoke.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.dgvPokayoke.ColumnHeadersHeight = 25;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("AktivGrotesk-Regular", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPokayoke.DefaultCellStyle = dataGridViewCellStyle12;
+            this.dgvPokayoke.EnableHeadersVisualStyles = false;
+            this.dgvPokayoke.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvPokayoke.Location = new System.Drawing.Point(859, 137);
+            this.dgvPokayoke.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dgvPokayoke.MultiSelect = false;
+            this.dgvPokayoke.Name = "dgvPokayoke";
+            this.dgvPokayoke.ReadOnly = true;
+            this.dgvPokayoke.RowHeadersVisible = false;
+            this.dgvPokayoke.RowHeadersWidth = 51;
+            this.dgvPokayoke.RowTemplate.Height = 24;
+            this.dgvPokayoke.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPokayoke.Size = new System.Drawing.Size(201, 495);
+            this.dgvPokayoke.TabIndex = 24;
+            this.dgvPokayoke.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Guna;
+            this.dgvPokayoke.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvPokayoke.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvPokayoke.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvPokayoke.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvPokayoke.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvPokayoke.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dgvPokayoke.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvPokayoke.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dgvPokayoke.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvPokayoke.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("AktivGrotesk-Regular", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvPokayoke.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvPokayoke.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvPokayoke.ThemeStyle.HeaderStyle.Height = 25;
+            this.dgvPokayoke.ThemeStyle.ReadOnly = true;
+            this.dgvPokayoke.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvPokayoke.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvPokayoke.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("AktivGrotesk-Regular", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvPokayoke.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvPokayoke.ThemeStyle.RowsStyle.Height = 24;
+            this.dgvPokayoke.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvPokayoke.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            // 
+            // dgvNotPokayoke
+            // 
+            this.dgvNotPokayoke.AllowUserToAddRows = false;
+            this.dgvNotPokayoke.AllowUserToDeleteRows = false;
+            this.dgvNotPokayoke.AllowUserToResizeRows = false;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            this.dgvNotPokayoke.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            this.dgvNotPokayoke.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvNotPokayoke.BackgroundColor = System.Drawing.Color.White;
+            this.dgvNotPokayoke.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvNotPokayoke.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvNotPokayoke.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("AktivGrotesk-Regular", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNotPokayoke.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            this.dgvNotPokayoke.ColumnHeadersHeight = 25;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("AktivGrotesk-Regular", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvNotPokayoke.DefaultCellStyle = dataGridViewCellStyle15;
+            this.dgvNotPokayoke.EnableHeadersVisualStyles = false;
+            this.dgvNotPokayoke.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvNotPokayoke.Location = new System.Drawing.Point(417, 137);
+            this.dgvNotPokayoke.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dgvNotPokayoke.MultiSelect = false;
+            this.dgvNotPokayoke.Name = "dgvNotPokayoke";
+            this.dgvNotPokayoke.ReadOnly = true;
+            this.dgvNotPokayoke.RowHeadersVisible = false;
+            this.dgvNotPokayoke.RowHeadersWidth = 51;
+            this.dgvNotPokayoke.RowTemplate.Height = 24;
+            this.dgvNotPokayoke.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvNotPokayoke.Size = new System.Drawing.Size(215, 495);
+            this.dgvNotPokayoke.TabIndex = 23;
+            this.dgvNotPokayoke.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Guna;
+            this.dgvNotPokayoke.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvNotPokayoke.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvNotPokayoke.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvNotPokayoke.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvNotPokayoke.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvNotPokayoke.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dgvNotPokayoke.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvNotPokayoke.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dgvNotPokayoke.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvNotPokayoke.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("AktivGrotesk-Regular", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvNotPokayoke.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvNotPokayoke.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvNotPokayoke.ThemeStyle.HeaderStyle.Height = 25;
+            this.dgvNotPokayoke.ThemeStyle.ReadOnly = true;
+            this.dgvNotPokayoke.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvNotPokayoke.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvNotPokayoke.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("AktivGrotesk-Regular", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvNotPokayoke.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvNotPokayoke.ThemeStyle.RowsStyle.Height = 24;
+            this.dgvNotPokayoke.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvNotPokayoke.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            // 
+            // gunaTextBox1
+            // 
+            this.gunaTextBox1.BackColor = System.Drawing.Color.Transparent;
+            this.gunaTextBox1.BaseColor = System.Drawing.Color.White;
+            this.gunaTextBox1.BorderColor = System.Drawing.Color.Silver;
+            this.gunaTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.gunaTextBox1.FocusedBaseColor = System.Drawing.Color.White;
+            this.gunaTextBox1.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.gunaTextBox1.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.gunaTextBox1.Font = new System.Drawing.Font("AktivGrotesk-Light", 12F);
+            this.gunaTextBox1.Location = new System.Drawing.Point(8, 80);
+            this.gunaTextBox1.Name = "gunaTextBox1";
+            this.gunaTextBox1.PasswordChar = '\0';
+            this.gunaTextBox1.Radius = 15;
+            this.gunaTextBox1.SelectedText = "";
+            this.gunaTextBox1.Size = new System.Drawing.Size(201, 37);
+            this.gunaTextBox1.TabIndex = 22;
+            this.gunaTextBox1.Text = "gunaTextBox1";
+            // 
+            // dgvAllConfig
+            // 
+            this.dgvAllConfig.AllowUserToAddRows = false;
+            this.dgvAllConfig.AllowUserToDeleteRows = false;
+            this.dgvAllConfig.AllowUserToResizeRows = false;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
+            this.dgvAllConfig.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            this.dgvAllConfig.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAllConfig.BackgroundColor = System.Drawing.Color.White;
+            this.dgvAllConfig.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvAllConfig.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvAllConfig.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("AktivGrotesk-Regular", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAllConfig.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            this.dgvAllConfig.ColumnHeadersHeight = 25;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("AktivGrotesk-Regular", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAllConfig.DefaultCellStyle = dataGridViewCellStyle18;
+            this.dgvAllConfig.EnableHeadersVisualStyles = false;
+            this.dgvAllConfig.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvAllConfig.Location = new System.Drawing.Point(13, 137);
+            this.dgvAllConfig.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dgvAllConfig.MultiSelect = false;
+            this.dgvAllConfig.Name = "dgvAllConfig";
+            this.dgvAllConfig.ReadOnly = true;
+            this.dgvAllConfig.RowHeadersVisible = false;
+            this.dgvAllConfig.RowHeadersWidth = 51;
+            this.dgvAllConfig.RowTemplate.Height = 24;
+            this.dgvAllConfig.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAllConfig.Size = new System.Drawing.Size(333, 495);
+            this.dgvAllConfig.TabIndex = 21;
+            this.dgvAllConfig.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Guna;
+            this.dgvAllConfig.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvAllConfig.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvAllConfig.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvAllConfig.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvAllConfig.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvAllConfig.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dgvAllConfig.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvAllConfig.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dgvAllConfig.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvAllConfig.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("AktivGrotesk-Regular", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvAllConfig.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvAllConfig.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvAllConfig.ThemeStyle.HeaderStyle.Height = 25;
+            this.dgvAllConfig.ThemeStyle.ReadOnly = true;
+            this.dgvAllConfig.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvAllConfig.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvAllConfig.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("AktivGrotesk-Regular", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvAllConfig.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvAllConfig.ThemeStyle.RowsStyle.Height = 24;
+            this.dgvAllConfig.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvAllConfig.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvAllConfig.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAllConfig_CellClick);
+            // 
+            // btnRemovePokayoke
+            // 
+            this.btnRemovePokayoke.AnimationHoverSpeed = 0.07F;
+            this.btnRemovePokayoke.AnimationSpeed = 0.03F;
+            this.btnRemovePokayoke.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.btnRemovePokayoke.BorderColor = System.Drawing.Color.Black;
+            this.btnRemovePokayoke.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnRemovePokayoke.FocusedColor = System.Drawing.Color.Empty;
+            this.btnRemovePokayoke.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnRemovePokayoke.ForeColor = System.Drawing.Color.White;
+            this.btnRemovePokayoke.Image = ((System.Drawing.Image)(resources.GetObject("btnRemovePokayoke.Image")));
+            this.btnRemovePokayoke.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnRemovePokayoke.Location = new System.Drawing.Point(724, 238);
+            this.btnRemovePokayoke.Name = "btnRemovePokayoke";
+            this.btnRemovePokayoke.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.btnRemovePokayoke.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnRemovePokayoke.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnRemovePokayoke.OnHoverImage = null;
+            this.btnRemovePokayoke.OnPressedColor = System.Drawing.Color.Black;
+            this.btnRemovePokayoke.Size = new System.Drawing.Size(65, 42);
+            this.btnRemovePokayoke.TabIndex = 26;
+            this.btnRemovePokayoke.Text = "<==";
+            // 
+            // btnAddPokayoke
+            // 
+            this.btnAddPokayoke.AnimationHoverSpeed = 0.07F;
+            this.btnAddPokayoke.AnimationSpeed = 0.03F;
+            this.btnAddPokayoke.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.btnAddPokayoke.BorderColor = System.Drawing.Color.Black;
+            this.btnAddPokayoke.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnAddPokayoke.FocusedColor = System.Drawing.Color.Empty;
+            this.btnAddPokayoke.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAddPokayoke.ForeColor = System.Drawing.Color.White;
+            this.btnAddPokayoke.Image = ((System.Drawing.Image)(resources.GetObject("btnAddPokayoke.Image")));
+            this.btnAddPokayoke.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnAddPokayoke.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnAddPokayoke.Location = new System.Drawing.Point(724, 153);
+            this.btnAddPokayoke.Name = "btnAddPokayoke";
+            this.btnAddPokayoke.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.btnAddPokayoke.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnAddPokayoke.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnAddPokayoke.OnHoverImage = null;
+            this.btnAddPokayoke.OnPressedColor = System.Drawing.Color.Black;
+            this.btnAddPokayoke.Size = new System.Drawing.Size(65, 42);
+            this.btnAddPokayoke.TabIndex = 25;
+            this.btnAddPokayoke.Text = "==>";
+            this.btnAddPokayoke.Click += new System.EventHandler(this.btnAddPokayoke_Click);
             // 
             // tabEPN
             // 
@@ -661,8 +1092,8 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.panel2, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel1, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.btnAddEPN, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel1, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -843,6 +1274,35 @@
             this.lblClipSupport.Text = "Clip Support";
             this.lblClipSupport.Visible = false;
             // 
+            // btnAddEPN
+            // 
+            this.btnAddEPN.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnAddEPN.AnimationHoverSpeed = 0.07F;
+            this.btnAddEPN.AnimationSpeed = 0.03F;
+            this.btnAddEPN.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddEPN.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.btnAddEPN.BorderColor = System.Drawing.Color.Black;
+            this.btnAddEPN.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnAddEPN.FocusedColor = System.Drawing.Color.Empty;
+            this.btnAddEPN.Font = new System.Drawing.Font("AktivGrotesk-Light", 12F);
+            this.btnAddEPN.ForeColor = System.Drawing.Color.White;
+            this.btnAddEPN.Image = null;
+            this.btnAddEPN.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnAddEPN.Location = new System.Drawing.Point(10, 249);
+            this.btnAddEPN.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnAddEPN.Name = "btnAddEPN";
+            this.btnAddEPN.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.btnAddEPN.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnAddEPN.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnAddEPN.OnHoverImage = null;
+            this.btnAddEPN.OnPressedColor = System.Drawing.Color.Black;
+            this.btnAddEPN.Radius = 15;
+            this.btnAddEPN.Size = new System.Drawing.Size(94, 37);
+            this.btnAddEPN.TabIndex = 11;
+            this.btnAddEPN.Text = "Add";
+            this.btnAddEPN.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnAddEPN.Click += new System.EventHandler(this.btnAddEPN_Click);
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -935,6 +1395,90 @@
             this.gunaLabel8.Text = "Right Side";
             this.gunaLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // picBackSide
+            // 
+            this.picBackSide.BaseColor = System.Drawing.Color.Black;
+            this.picBackSide.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picBackSide.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picBackSide.Location = new System.Drawing.Point(914, 4);
+            this.picBackSide.Margin = new System.Windows.Forms.Padding(4);
+            this.picBackSide.Name = "picBackSide";
+            this.picBackSide.Size = new System.Drawing.Size(179, 143);
+            this.picBackSide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBackSide.TabIndex = 23;
+            this.picBackSide.TabStop = false;
+            this.picBackSide.Click += new System.EventHandler(this.picBackSide_Click);
+            // 
+            // picBottomSide
+            // 
+            this.picBottomSide.BaseColor = System.Drawing.Color.White;
+            this.picBottomSide.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picBottomSide.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picBottomSide.Location = new System.Drawing.Point(732, 4);
+            this.picBottomSide.Margin = new System.Windows.Forms.Padding(4);
+            this.picBottomSide.Name = "picBottomSide";
+            this.picBottomSide.Size = new System.Drawing.Size(174, 143);
+            this.picBottomSide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBottomSide.TabIndex = 22;
+            this.picBottomSide.TabStop = false;
+            this.picBottomSide.Click += new System.EventHandler(this.picBottomSide_Click);
+            // 
+            // picTopSide
+            // 
+            this.picTopSide.BaseColor = System.Drawing.Color.White;
+            this.picTopSide.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picTopSide.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picTopSide.Location = new System.Drawing.Point(550, 4);
+            this.picTopSide.Margin = new System.Windows.Forms.Padding(4);
+            this.picTopSide.Name = "picTopSide";
+            this.picTopSide.Size = new System.Drawing.Size(174, 143);
+            this.picTopSide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picTopSide.TabIndex = 21;
+            this.picTopSide.TabStop = false;
+            this.picTopSide.Click += new System.EventHandler(this.picTopSide_Click);
+            // 
+            // picLeftSide
+            // 
+            this.picLeftSide.BaseColor = System.Drawing.Color.White;
+            this.picLeftSide.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picLeftSide.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picLeftSide.Location = new System.Drawing.Point(368, 4);
+            this.picLeftSide.Margin = new System.Windows.Forms.Padding(4);
+            this.picLeftSide.Name = "picLeftSide";
+            this.picLeftSide.Size = new System.Drawing.Size(174, 143);
+            this.picLeftSide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picLeftSide.TabIndex = 20;
+            this.picLeftSide.TabStop = false;
+            this.picLeftSide.Click += new System.EventHandler(this.picLeftSide_Click);
+            // 
+            // picRightSide
+            // 
+            this.picRightSide.BaseColor = System.Drawing.Color.White;
+            this.picRightSide.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picRightSide.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picRightSide.Location = new System.Drawing.Point(186, 4);
+            this.picRightSide.Margin = new System.Windows.Forms.Padding(4);
+            this.picRightSide.Name = "picRightSide";
+            this.picRightSide.Size = new System.Drawing.Size(174, 143);
+            this.picRightSide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picRightSide.TabIndex = 19;
+            this.picRightSide.TabStop = false;
+            this.picRightSide.Click += new System.EventHandler(this.picRightSide_Click);
+            // 
+            // picfrontSide
+            // 
+            this.picfrontSide.BaseColor = System.Drawing.Color.White;
+            this.picfrontSide.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picfrontSide.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picfrontSide.Location = new System.Drawing.Point(4, 4);
+            this.picfrontSide.Margin = new System.Windows.Forms.Padding(4);
+            this.picfrontSide.Name = "picfrontSide";
+            this.picfrontSide.Size = new System.Drawing.Size(174, 143);
+            this.picfrontSide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picfrontSide.TabIndex = 18;
+            this.picfrontSide.TabStop = false;
+            this.picfrontSide.Click += new System.EventHandler(this.picfrontSide_Click);
+            // 
             // gunaLabel3
             // 
             this.gunaLabel3.AutoSize = true;
@@ -946,35 +1490,6 @@
             this.gunaLabel3.TabIndex = 24;
             this.gunaLabel3.Text = "Front Side";
             this.gunaLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnAddEPN
-            // 
-            this.btnAddEPN.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnAddEPN.AnimationHoverSpeed = 0.07F;
-            this.btnAddEPN.AnimationSpeed = 0.03F;
-            this.btnAddEPN.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddEPN.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.btnAddEPN.BorderColor = System.Drawing.Color.Black;
-            this.btnAddEPN.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnAddEPN.FocusedColor = System.Drawing.Color.Empty;
-            this.btnAddEPN.Font = new System.Drawing.Font("AktivGrotesk-Light", 12F);
-            this.btnAddEPN.ForeColor = System.Drawing.Color.White;
-            this.btnAddEPN.Image = null;
-            this.btnAddEPN.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnAddEPN.Location = new System.Drawing.Point(10, 249);
-            this.btnAddEPN.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnAddEPN.Name = "btnAddEPN";
-            this.btnAddEPN.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.btnAddEPN.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnAddEPN.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnAddEPN.OnHoverImage = null;
-            this.btnAddEPN.OnPressedColor = System.Drawing.Color.Black;
-            this.btnAddEPN.Radius = 15;
-            this.btnAddEPN.Size = new System.Drawing.Size(94, 37);
-            this.btnAddEPN.TabIndex = 11;
-            this.btnAddEPN.Text = "Add";
-            this.btnAddEPN.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btnAddEPN.Click += new System.EventHandler(this.btnAddEPN_Click);
             // 
             // gunaPanel2
             // 
@@ -1072,423 +1587,16 @@
             this.openFileDialog1.Filter = "Picture (*.jpeg, .jpg, .png)|*.jpeg;*.jpg;*.png";
             this.openFileDialog1.RestoreDirectory = true;
             // 
-            // gunaDataGridView1
+            // pictureBox7
             // 
-            this.gunaDataGridView1.AllowUserToAddRows = false;
-            this.gunaDataGridView1.AllowUserToDeleteRows = false;
-            this.gunaDataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
-            this.gunaDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
-            this.gunaDataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gunaDataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.gunaDataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.gunaDataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.gunaDataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.gunaDataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("AktivGrotesk-Regular", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gunaDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
-            this.gunaDataGridView1.ColumnHeadersHeight = 4;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("AktivGrotesk-Regular", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gunaDataGridView1.DefaultCellStyle = dataGridViewCellStyle18;
-            this.gunaDataGridView1.EnableHeadersVisualStyles = false;
-            this.gunaDataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.gunaDataGridView1.Location = new System.Drawing.Point(4, 67);
-            this.gunaDataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.gunaDataGridView1.Name = "gunaDataGridView1";
-            this.gunaDataGridView1.ReadOnly = true;
-            this.gunaDataGridView1.RowHeadersVisible = false;
-            this.gunaDataGridView1.RowHeadersWidth = 51;
-            this.gunaDataGridView1.RowTemplate.Height = 24;
-            this.gunaDataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gunaDataGridView1.Size = new System.Drawing.Size(201, 565);
-            this.gunaDataGridView1.TabIndex = 21;
-            this.gunaDataGridView1.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Guna;
-            this.gunaDataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.gunaDataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.gunaDataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.gunaDataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.gunaDataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.gunaDataGridView1.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.gunaDataGridView1.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.gunaDataGridView1.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.gunaDataGridView1.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.gunaDataGridView1.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("AktivGrotesk-Regular", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaDataGridView1.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.gunaDataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.gunaDataGridView1.ThemeStyle.HeaderStyle.Height = 4;
-            this.gunaDataGridView1.ThemeStyle.ReadOnly = true;
-            this.gunaDataGridView1.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.gunaDataGridView1.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.gunaDataGridView1.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("AktivGrotesk-Regular", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaDataGridView1.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.gunaDataGridView1.ThemeStyle.RowsStyle.Height = 24;
-            this.gunaDataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.gunaDataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
-            // gunaTextBox1
-            // 
-            this.gunaTextBox1.BackColor = System.Drawing.Color.Transparent;
-            this.gunaTextBox1.BaseColor = System.Drawing.Color.White;
-            this.gunaTextBox1.BorderColor = System.Drawing.Color.Silver;
-            this.gunaTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.gunaTextBox1.FocusedBaseColor = System.Drawing.Color.White;
-            this.gunaTextBox1.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.gunaTextBox1.FocusedForeColor = System.Drawing.SystemColors.ControlText;
-            this.gunaTextBox1.Font = new System.Drawing.Font("AktivGrotesk-Light", 12F);
-            this.gunaTextBox1.Location = new System.Drawing.Point(4, 16);
-            this.gunaTextBox1.Name = "gunaTextBox1";
-            this.gunaTextBox1.PasswordChar = '\0';
-            this.gunaTextBox1.Radius = 15;
-            this.gunaTextBox1.SelectedText = "";
-            this.gunaTextBox1.Size = new System.Drawing.Size(201, 30);
-            this.gunaTextBox1.TabIndex = 22;
-            this.gunaTextBox1.Text = "gunaTextBox1";
-            // 
-            // gunaDataGridView2
-            // 
-            this.gunaDataGridView2.AllowUserToAddRows = false;
-            this.gunaDataGridView2.AllowUserToDeleteRows = false;
-            this.gunaDataGridView2.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            this.gunaDataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
-            this.gunaDataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gunaDataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.gunaDataGridView2.BackgroundColor = System.Drawing.Color.White;
-            this.gunaDataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.gunaDataGridView2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.gunaDataGridView2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("AktivGrotesk-Regular", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gunaDataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
-            this.gunaDataGridView2.ColumnHeadersHeight = 4;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("AktivGrotesk-Regular", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gunaDataGridView2.DefaultCellStyle = dataGridViewCellStyle15;
-            this.gunaDataGridView2.EnableHeadersVisualStyles = false;
-            this.gunaDataGridView2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.gunaDataGridView2.Location = new System.Drawing.Point(321, 116);
-            this.gunaDataGridView2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.gunaDataGridView2.Name = "gunaDataGridView2";
-            this.gunaDataGridView2.ReadOnly = true;
-            this.gunaDataGridView2.RowHeadersVisible = false;
-            this.gunaDataGridView2.RowHeadersWidth = 51;
-            this.gunaDataGridView2.RowTemplate.Height = 24;
-            this.gunaDataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gunaDataGridView2.Size = new System.Drawing.Size(201, 516);
-            this.gunaDataGridView2.TabIndex = 23;
-            this.gunaDataGridView2.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Guna;
-            this.gunaDataGridView2.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.gunaDataGridView2.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.gunaDataGridView2.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.gunaDataGridView2.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.gunaDataGridView2.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.gunaDataGridView2.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.gunaDataGridView2.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.gunaDataGridView2.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.gunaDataGridView2.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.gunaDataGridView2.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("AktivGrotesk-Regular", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaDataGridView2.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.gunaDataGridView2.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.gunaDataGridView2.ThemeStyle.HeaderStyle.Height = 4;
-            this.gunaDataGridView2.ThemeStyle.ReadOnly = true;
-            this.gunaDataGridView2.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.gunaDataGridView2.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.gunaDataGridView2.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("AktivGrotesk-Regular", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaDataGridView2.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.gunaDataGridView2.ThemeStyle.RowsStyle.Height = 24;
-            this.gunaDataGridView2.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.gunaDataGridView2.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
-            // gunaDataGridView3
-            // 
-            this.gunaDataGridView3.AllowUserToAddRows = false;
-            this.gunaDataGridView3.AllowUserToDeleteRows = false;
-            this.gunaDataGridView3.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            this.gunaDataGridView3.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
-            this.gunaDataGridView3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gunaDataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.gunaDataGridView3.BackgroundColor = System.Drawing.Color.White;
-            this.gunaDataGridView3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.gunaDataGridView3.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.gunaDataGridView3.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("AktivGrotesk-Regular", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gunaDataGridView3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
-            this.gunaDataGridView3.ColumnHeadersHeight = 4;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("AktivGrotesk-Regular", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gunaDataGridView3.DefaultCellStyle = dataGridViewCellStyle12;
-            this.gunaDataGridView3.EnableHeadersVisualStyles = false;
-            this.gunaDataGridView3.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.gunaDataGridView3.Location = new System.Drawing.Point(758, 116);
-            this.gunaDataGridView3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.gunaDataGridView3.Name = "gunaDataGridView3";
-            this.gunaDataGridView3.ReadOnly = true;
-            this.gunaDataGridView3.RowHeadersVisible = false;
-            this.gunaDataGridView3.RowHeadersWidth = 51;
-            this.gunaDataGridView3.RowTemplate.Height = 24;
-            this.gunaDataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gunaDataGridView3.Size = new System.Drawing.Size(201, 516);
-            this.gunaDataGridView3.TabIndex = 24;
-            this.gunaDataGridView3.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Guna;
-            this.gunaDataGridView3.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.gunaDataGridView3.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.gunaDataGridView3.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.gunaDataGridView3.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.gunaDataGridView3.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.gunaDataGridView3.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.gunaDataGridView3.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.gunaDataGridView3.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.gunaDataGridView3.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.gunaDataGridView3.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("AktivGrotesk-Regular", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaDataGridView3.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.gunaDataGridView3.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.gunaDataGridView3.ThemeStyle.HeaderStyle.Height = 4;
-            this.gunaDataGridView3.ThemeStyle.ReadOnly = true;
-            this.gunaDataGridView3.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.gunaDataGridView3.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.gunaDataGridView3.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("AktivGrotesk-Regular", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaDataGridView3.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.gunaDataGridView3.ThemeStyle.RowsStyle.Height = 24;
-            this.gunaDataGridView3.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.gunaDataGridView3.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox4.Image = global::Pokayoke_Matrix.Properties.Resources.minimize__3_;
-            this.pictureBox4.Location = new System.Drawing.Point(1036, 12);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox4.TabIndex = 31;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox3.Image = global::Pokayoke_Matrix.Properties.Resources.maximize;
-            this.pictureBox3.Location = new System.Drawing.Point(1074, 12);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox3.TabIndex = 30;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.Image = global::Pokayoke_Matrix.Properties.Resources.minimize__4_;
-            this.pictureBox2.Location = new System.Drawing.Point(998, 12);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox2.TabIndex = 29;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = global::Pokayoke_Matrix.Properties.Resources.cancel__1_;
-            this.pictureBox1.Location = new System.Drawing.Point(1112, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 28;
-            this.pictureBox1.TabStop = false;
-            // 
-            // gunaPictureBox1
-            // 
-            this.gunaPictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
-            this.gunaPictureBox1.Image = global::Pokayoke_Matrix.Properties.Resources.profile__1_;
-            this.gunaPictureBox1.Location = new System.Drawing.Point(935, 12);
-            this.gunaPictureBox1.Name = "gunaPictureBox1";
-            this.gunaPictureBox1.Size = new System.Drawing.Size(45, 41);
-            this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.gunaPictureBox1.TabIndex = 27;
-            this.gunaPictureBox1.TabStop = false;
-            // 
-            // gunaButton2
-            // 
-            this.gunaButton2.AnimationHoverSpeed = 0.07F;
-            this.gunaButton2.AnimationSpeed = 0.03F;
-            this.gunaButton2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.gunaButton2.BorderColor = System.Drawing.Color.Black;
-            this.gunaButton2.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaButton2.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaButton2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaButton2.ForeColor = System.Drawing.Color.White;
-            this.gunaButton2.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton2.Image")));
-            this.gunaButton2.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton2.Location = new System.Drawing.Point(564, 277);
-            this.gunaButton2.Name = "gunaButton2";
-            this.gunaButton2.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.gunaButton2.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaButton2.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaButton2.OnHoverImage = null;
-            this.gunaButton2.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaButton2.Size = new System.Drawing.Size(160, 42);
-            this.gunaButton2.TabIndex = 26;
-            this.gunaButton2.Text = "gunaButton2";
-            // 
-            // gunaButton1
-            // 
-            this.gunaButton1.AnimationHoverSpeed = 0.07F;
-            this.gunaButton1.AnimationSpeed = 0.03F;
-            this.gunaButton1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.gunaButton1.BorderColor = System.Drawing.Color.Black;
-            this.gunaButton1.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaButton1.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaButton1.ForeColor = System.Drawing.Color.White;
-            this.gunaButton1.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton1.Image")));
-            this.gunaButton1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.gunaButton1.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton1.Location = new System.Drawing.Point(564, 180);
-            this.gunaButton1.Name = "gunaButton1";
-            this.gunaButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.gunaButton1.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaButton1.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaButton1.OnHoverImage = null;
-            this.gunaButton1.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaButton1.Size = new System.Drawing.Size(160, 42);
-            this.gunaButton1.TabIndex = 25;
-            this.gunaButton1.Text = "gunaButton1";
-            // 
-            // picBackSide
-            // 
-            this.picBackSide.BaseColor = System.Drawing.Color.Black;
-            this.picBackSide.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBackSide.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picBackSide.Location = new System.Drawing.Point(914, 4);
-            this.picBackSide.Margin = new System.Windows.Forms.Padding(4);
-            this.picBackSide.Name = "picBackSide";
-            this.picBackSide.Size = new System.Drawing.Size(179, 143);
-            this.picBackSide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBackSide.TabIndex = 23;
-            this.picBackSide.TabStop = false;
-            this.picBackSide.Click += new System.EventHandler(this.picBackSide_Click);
-            // 
-            // picBottomSide
-            // 
-            this.picBottomSide.BaseColor = System.Drawing.Color.White;
-            this.picBottomSide.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBottomSide.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picBottomSide.Location = new System.Drawing.Point(732, 4);
-            this.picBottomSide.Margin = new System.Windows.Forms.Padding(4);
-            this.picBottomSide.Name = "picBottomSide";
-            this.picBottomSide.Size = new System.Drawing.Size(174, 143);
-            this.picBottomSide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBottomSide.TabIndex = 22;
-            this.picBottomSide.TabStop = false;
-            this.picBottomSide.Click += new System.EventHandler(this.picBottomSide_Click);
-            // 
-            // picTopSide
-            // 
-            this.picTopSide.BaseColor = System.Drawing.Color.White;
-            this.picTopSide.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picTopSide.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picTopSide.Location = new System.Drawing.Point(550, 4);
-            this.picTopSide.Margin = new System.Windows.Forms.Padding(4);
-            this.picTopSide.Name = "picTopSide";
-            this.picTopSide.Size = new System.Drawing.Size(174, 143);
-            this.picTopSide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picTopSide.TabIndex = 21;
-            this.picTopSide.TabStop = false;
-            this.picTopSide.Click += new System.EventHandler(this.picTopSide_Click);
-            // 
-            // picLeftSide
-            // 
-            this.picLeftSide.BaseColor = System.Drawing.Color.White;
-            this.picLeftSide.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picLeftSide.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picLeftSide.Location = new System.Drawing.Point(368, 4);
-            this.picLeftSide.Margin = new System.Windows.Forms.Padding(4);
-            this.picLeftSide.Name = "picLeftSide";
-            this.picLeftSide.Size = new System.Drawing.Size(174, 143);
-            this.picLeftSide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picLeftSide.TabIndex = 20;
-            this.picLeftSide.TabStop = false;
-            this.picLeftSide.Click += new System.EventHandler(this.picLeftSide_Click);
-            // 
-            // picRightSide
-            // 
-            this.picRightSide.BaseColor = System.Drawing.Color.White;
-            this.picRightSide.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picRightSide.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picRightSide.Location = new System.Drawing.Point(186, 4);
-            this.picRightSide.Margin = new System.Windows.Forms.Padding(4);
-            this.picRightSide.Name = "picRightSide";
-            this.picRightSide.Size = new System.Drawing.Size(174, 143);
-            this.picRightSide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picRightSide.TabIndex = 19;
-            this.picRightSide.TabStop = false;
-            this.picRightSide.Click += new System.EventHandler(this.picRightSide_Click);
-            // 
-            // picfrontSide
-            // 
-            this.picfrontSide.BaseColor = System.Drawing.Color.White;
-            this.picfrontSide.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picfrontSide.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picfrontSide.Location = new System.Drawing.Point(4, 4);
-            this.picfrontSide.Margin = new System.Windows.Forms.Padding(4);
-            this.picfrontSide.Name = "picfrontSide";
-            this.picfrontSide.Size = new System.Drawing.Size(174, 143);
-            this.picfrontSide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picfrontSide.TabIndex = 18;
-            this.picfrontSide.TabStop = false;
-            this.picfrontSide.Click += new System.EventHandler(this.picfrontSide_Click);
-            // 
-            // gunaLabel13
-            // 
-            this.gunaLabel13.AutoSize = true;
-            this.gunaLabel13.Font = new System.Drawing.Font("AktivGrotesk-Light", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel13.Location = new System.Drawing.Point(541, 16);
-            this.gunaLabel13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.gunaLabel13.Name = "gunaLabel13";
-            this.gunaLabel13.Size = new System.Drawing.Size(192, 37);
-            this.gunaLabel13.TabIndex = 27;
-            this.gunaLabel13.Text = "EPN123456";
+            this.pictureBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox7.Image = global::Pokayoke_Matrix.Properties.Resources.minimize__4_;
+            this.pictureBox7.Location = new System.Drawing.Point(228, 14);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox7.TabIndex = 30;
+            this.pictureBox7.TabStop = false;
             // 
             // Form1
             // 
@@ -1508,10 +1616,19 @@
             this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
             this.gunaPanel1.ResumeLayout(false);
             this.gunaPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabClips.ResumeLayout(false);
+            this.tabClips.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClips)).EndInit();
             this.tabConnectors.ResumeLayout(false);
+            this.tabConnectors.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConnectors)).EndInit();
             this.tabUsers.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -1519,6 +1636,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.tabConfig.ResumeLayout(false);
             this.tabConfig.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPokayoke)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNotPokayoke)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAllConfig)).EndInit();
             this.tabEPN.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -1527,21 +1647,14 @@
             this.panel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.gunaPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gunaDataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaDataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaDataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBackSide)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBottomSide)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTopSide)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLeftSide)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRightSide)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picfrontSide)).EndInit();
+            this.gunaPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1604,15 +1717,21 @@
         private Guna.UI.WinForms.GunaCircleButton gunaCircleButton1;
         private Guna.UI.WinForms.GunaCircleButton gunaCircleButton3;
         private Guna.UI.WinForms.GunaCircleButton gunaCircleButton2;
-        private Guna.UI.WinForms.GunaButton gunaButton2;
-        private Guna.UI.WinForms.GunaButton gunaButton1;
-        private Guna.UI.WinForms.GunaDataGridView gunaDataGridView3;
-        private Guna.UI.WinForms.GunaDataGridView gunaDataGridView2;
+        private Guna.UI.WinForms.GunaButton btnRemovePokayoke;
+        private Guna.UI.WinForms.GunaButton btnAddPokayoke;
+        private Guna.UI.WinForms.GunaDataGridView dgvPokayoke;
+        private Guna.UI.WinForms.GunaDataGridView dgvNotPokayoke;
         private Guna.UI.WinForms.GunaTextBox gunaTextBox1;
-        private Guna.UI.WinForms.GunaDataGridView gunaDataGridView1;
+        private Guna.UI.WinForms.GunaDataGridView dgvAllConfig;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private Guna.UI.WinForms.GunaLabel gunaLabel13;
+        private Guna.UI.WinForms.GunaLabel lblEpnConfig;
+        private Guna.UI.WinForms.GunaTextBox txtSearchCon;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private Guna.UI.WinForms.GunaTextBox txtSearchClips;
+        private Guna.UI.WinForms.GunaComboBox comboBoxProjects;
+        private System.Windows.Forms.PictureBox pictureBox7;
     }
 }
 

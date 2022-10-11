@@ -1,5 +1,6 @@
 ﻿using Pokayoke_Matrix.Models;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,11 +23,7 @@ namespace Pokayoke_Matrix
             InitializeComponent();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Form_users form_Config = new Form_users();
-            form_Config.ShowDialog();
-        }
+
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -38,14 +35,10 @@ namespace Pokayoke_Matrix
                 lblFullName.Text = Variables.fullName;
                 lblPersonnelID.Text = Variables.personnelID;
             }
+
         }
 
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            Form_Config form_Config = new Form_Config();    
-            form_Config.ShowDialog();
-        }
 
         private void btnAddEPN_Click(object sender, EventArgs e)
         {
@@ -85,13 +78,18 @@ namespace Pokayoke_Matrix
 
             try
             {
+                Console.WriteLine(picFrontFile.FileName);
+                Console.WriteLine(picBackFile.FileName);
+                Console.WriteLine(picLeftFile.FileName);
+                Console.WriteLine(picRightFile.FileName);
+                Console.WriteLine(picTopFile.FileName);
                 
-                File.Copy(picFrontFile.FileName, Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_FrontSide" + Path.GetExtension(picFrontFile.FileName));
-                File.Copy(picBackFile.FileName, Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_BackSide" + Path.GetExtension(picBackFile.FileName));
-                File.Copy(picLeftFile.FileName, Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_LeftSide" + Path.GetExtension(picLeftFile.FileName));
-                File.Copy(picRightFile.FileName, Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_RightSide" + Path.GetExtension(picRightFile.FileName));
-                File.Copy(picTopFile.FileName, Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_TopSide" + Path.GetExtension(picTopFile.FileName));
-                File.Copy(picBottomFile.FileName, Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_BottomSide" + Path.GetExtension(picBottomFile.FileName));
+                File.Copy(picfrontSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_FrontSide" + Path.GetExtension(picFrontFile.FileName));
+                File.Copy(picBackSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_BackSide" + Path.GetExtension(picBackFile.FileName));
+                File.Copy(picLeftSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_LeftSide" + Path.GetExtension(picLeftFile.FileName));
+                File.Copy(picRightSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_RightSide" + Path.GetExtension(picRightFile.FileName));
+                File.Copy(picTopSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_TopSide" + Path.GetExtension(picTopFile.FileName));
+                File.Copy(picBottomSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_BottomSide" + Path.GetExtension(picBottomFile.FileName));
                 
             }
             catch (System.IO.IOException ex)
@@ -148,15 +146,23 @@ namespace Pokayoke_Matrix
             DataTable dt = new DataTable();
             dt.Columns.Add("ID", typeof(int));
             dt.Columns.Add("EPN", typeof(string));
+            dt.Columns.Add("Type", typeof(string));
 
             dgvAllEpn.ColumnHeadersHeight = 25;
+            dgvAllConfig.ColumnHeadersHeight = 25;
 
+            string type = "Connector";
             foreach (Epn epn in SqliteDataAccess.LoadEpns("SELECT * FROM tb_epns"))
             {
-                dt.Rows.Add(epn.id, epn.name);
+                if (epn.isConnector != 1)
+                {
+                    type = "Clip";
+                }
+                dt.Rows.Add(epn.id, epn.name, type);
             }
 
             dgvAllEpn.DataSource = dt;
+            dgvAllConfig.DataSource = dt;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -165,9 +171,27 @@ namespace Pokayoke_Matrix
             FillDataGrideViewUser();
             FillDataGrideViewConnectors();
             FillDataGrideViewClips();
-
+            FillComboBoxProject();
         }
 
+        private void FillComboBoxProject()
+        {
+
+            Dictionary<int, string> items = new Dictionary<int, string>();
+            foreach (Project project in SqliteDataAccess.LoadProject())
+            {
+
+                items.Add(project.Id, project.name);
+            }
+
+            if (items.Count > 0)
+            {
+                comboBoxProjects.DisplayMember = "Value";
+                comboBoxProjects.ValueMember = "Key";
+                comboBoxProjects.DataSource = new BindingSource(items, null);
+                comboBoxProjects.BindingContext = this.BindingContext;
+            }
+        }
         private void btnAddUser_Click(object sender, EventArgs e)
         {
             User user = new User();
@@ -224,6 +248,189 @@ namespace Pokayoke_Matrix
             tableLayoutPanel1.Height = tableLayoutPanel1.Width / 6;
         }
 
+        private void dgvConnectors_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Form_pokayoke pokayoke = new Form_pokayoke();
+            
+            int epn_id = (int)dgvConnectors.SelectedCells[0].Value;
+            foreach (Epn epn in SqliteDataAccess.LoadEpns("SELECT * FROM tb_epns INNER JOIN (tb_pictures) ON tb_epns.id = tb_pictures.epn_id WHERE tb_epns.id="+epn_id))
+            {
+        /*        Console.WriteLine("name : " + epn.name);
+                Console.WriteLine("id : " + epn.id);
+                Console.WriteLine("front_side : " + epn.front_side);
+                Console.WriteLine("back_side : " + epn.back_side);
+                Console.WriteLine("left_side : " + epn.left_side);
+                Console.WriteLine("right_side : " + epn.right_side);
+                Console.WriteLine("top_side : " + epn.top_side);
+                Console.WriteLine("bottom_side : " + epn.bottom_side);*/
+                pokayoke.picture.back_side = epn.back_side;
+                pokayoke.picture.front_side = epn.front_side;
+                pokayoke.picture.left_side = epn.front_side;
+                pokayoke.picture.right_side = epn.right_side;
+                pokayoke.picture.top_side = epn.top_side;
+                pokayoke.picture.bottom_side = epn.bottom_side;
+            }
+           
+            pokayoke.ShowDialog();
+        }
+
+        private void txtSearchCon_TextChanged(object sender, EventArgs e)
+        {
+
+            if (String.IsNullOrEmpty(txtSearchCon.Text))
+            {
+                FillDataGrideViewConnectors();
+                return;
+            }
+            if (String.IsNullOrWhiteSpace(txtSearchCon.Text))
+            {
+                return;
+            }
+            
+
+             DataTable dt = new DataTable();
+             dt.Columns.Add("ID", typeof(int));
+             dt.Columns.Add("EPN", typeof(string));
+             dt.Columns.Add("Count of Pokayakes", typeof(int));
+             dt.Columns.Add("Created By", typeof(string));
+             dgvConnectors.ColumnHeadersHeight = 25;
+
+             foreach (Epn epn in SqliteDataAccess.LoadEpns("SELECT tb_epns.id , tb_epns.name, tb_epns.isConnector, tb_epns.updated_at, tb_users.fullName ,count(tb_epns.id) AS CountOfPokayoke FROM tb_users INNER JOIN (tb_epns INNER JOIN tb_pokayoke ON tb_epns.id = tb_pokayoke.epn1_id or tb_epns.id = tb_pokayoke.epn2_id ) ON tb_users.id = tb_epns.created_by GROUP BY tb_epns.id,tb_epns.name HAVING tb_epns.isConnector=1 AND tb_epns.name LIKE '%"+txtSearchCon.Text+"%'"))
+             {
+                 dt.Rows.Add(epn.id, epn.name, epn.CountOfPokayoke, epn.fullName);
+             }
+
+             dgvConnectors.DataSource = dt;
+        }
+
+        private void txtSearchClips_TextChanged(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtSearchClips.Text))
+            {
+                FillDataGrideViewClips();
+                return;
+            }
+            if (String.IsNullOrWhiteSpace(txtSearchClips.Text))
+            {
+                return;
+            }
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("ID", typeof(int));
+            dt.Columns.Add("EPN", typeof(string));
+            dt.Columns.Add("Count of Pokayakes", typeof(int));
+            dt.Columns.Add("Created By", typeof(string));
+            dgvClips.ColumnHeadersHeight = 25;
+
+            foreach (Epn epn in SqliteDataAccess.LoadEpns("SELECT tb_epns.id , tb_epns.name, tb_epns.isConnector, tb_epns.updated_at, tb_users.fullName ,count(tb_epns.id) AS CountOfPokayoke FROM tb_users INNER JOIN (tb_epns INNER JOIN tb_pokayoke ON tb_epns.id = tb_pokayoke.epn1_id or tb_epns.id = tb_pokayoke.epn2_id ) ON tb_users.id = tb_epns.created_by GROUP BY tb_epns.id,tb_epns.name HAVING tb_epns.isConnector=0 AND tb_epns.name LIKE '%" + txtSearchCon.Text + "%'"))
+            {
+                dt.Rows.Add(epn.id, epn.name, epn.CountOfPokayoke, epn.fullName);
+            }
+
+            dgvClips.DataSource = dt;
+        }
+
+
+        private void dgvAllConfig_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            lblEpnConfig.Text = dgvAllConfig.SelectedCells[1].Value.ToString();
+
+            LoadPokayoke();
+           
+        }
+
+        private void LoadPokayoke()
+        {
+            string epn_id = dgvAllConfig.SelectedCells[0].Value.ToString();
+
+            int project_id = ((KeyValuePair<int, string>)comboBoxProjects.SelectedItem).Key;
+
+
+            DataTable dataTablePokayoke = new DataTable();
+            dataTablePokayoke.Columns.Add("ID", typeof(int));
+            dataTablePokayoke.Columns.Add("Name", typeof(string));
+
+            // load pokayoke from epn2_id
+            foreach (Pokayoke pokayoke in SqliteDataAccess.Loadpokayoke("SELECT * FROM tb_epns INNER JOIN tb_pokayoke ON tb_epns.id = tb_pokayoke.epn2_id WHERE tb_epns.id =" + epn_id + " AND tb_pokayoke.project_id = " + project_id))
+            {
+                dataTablePokayoke.Rows.Add(pokayoke.Id, pokayoke.epn1_id);
+            }
+
+            // load pokayoke from epn1_id
+            foreach (Pokayoke pokayoke in SqliteDataAccess.Loadpokayoke("SELECT * FROM tb_epns INNER JOIN tb_pokayoke ON tb_epns.id = tb_pokayoke.epn1_id WHERE tb_epns.id =" + epn_id + " AND tb_pokayoke.project_id = " + project_id))
+            {
+                dataTablePokayoke.Rows.Add(pokayoke.Id, pokayoke.epn2_id);
+            }
+
+            //fill pokayoke table
+            DataTable dataTable = new DataTable();
+            dataTable.Columns.Add("ID", typeof(int));
+            dataTable.Columns.Add("Name", typeof(string));
+            for (int i = 0; i < dataTablePokayoke.Rows.Count; i++)
+            {
+
+                foreach (Epn epn in SqliteDataAccess.LoadEpns("SELECT id, name FROM tb_epns where id =" + dataTablePokayoke.Rows[i][1].ToString()))
+                {
+                    dataTable.Rows.Add(epn.id, epn.name);
+                }
+            }
+
+            dgvPokayoke.DataSource = dataTable;
+
+            //fill not pokayoke table
+
+            int isConnector = 1;
+            if (dgvAllConfig.SelectedCells[2].Value.ToString() != "Connector")
+            {
+                isConnector = 0;
+            }
+            DataTable datatabelNotPokayoke = new DataTable();
+            datatabelNotPokayoke.Columns.Add("ID", typeof(int));
+            datatabelNotPokayoke.Columns.Add("Name", typeof(string));
+
+
+            foreach (Epn epn in SqliteDataAccess.LoadEpns("SELECT tb_epns.id, tb_epns.name FROM tb_epns where tb_epns.isConnector=" + isConnector + " and tb_epns.id != " + epn_id))
+            {
+                datatabelNotPokayoke.Rows.Add(epn.id, epn.name);
+            }
+
+
+           /* for (int i = 1; i < datatabelNotPokayoke.Rows.Count; i++)
+            {
+                Console.WriteLine(datatabelNotPokayoke.Rows.Count);
+                DataRow dataRow = dataTablePokayoke.Rows[i];
+
+                if (datatabelNotPokayoke.Rows[i] == dataRow["id"])
+                {
+                    datatabelNotPokayoke.Rows.RemoveAt(i);
+                }
+            }*/
+
+            dgvNotPokayoke.DataSource = datatabelNotPokayoke;
+        }
+
+        private void btnAddPokayoke_Click(object sender, EventArgs e)
+        {
+            int epn_1 = (int)dgvAllConfig.SelectedCells[0].Value;
+            int epn_2 = (int)dgvNotPokayoke.SelectedCells[0].Value;
+            int project_id = ((KeyValuePair<int, string>)comboBoxProjects.SelectedItem).Key;
+
+            Pokayoke pokayoke = new Pokayoke();
+            Review review = new Review();
+            pokayoke.epn1_id = epn_1;
+            pokayoke.epn2_id = epn_2;
+            pokayoke.project_id = project_id;
+
+            review.pokayoke_id = SqliteDataAccess.SavePokayoke(pokayoke);
+            SqliteDataAccess.SaveReview(review);
+
+            LoadPokayoke();
+        }
+
+        private void comboBoxProjects_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadPokayoke();
+        }
 
         private void FillDataGrideViewClips()
         {

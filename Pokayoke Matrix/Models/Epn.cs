@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Pokayoke_Matrix.Models
 {
-    public class Epn
+    public class Epn 
     {
+
         public int id { get; set; }   
         public string name { get; set; }   
         public int  isConnector { get; set; } = 1;
@@ -19,6 +20,16 @@ namespace Pokayoke_Matrix.Models
 
         public string fullName { get; set; }
 
-        public int CountOfPokayoke { get; set; } 
+        public int CountOfPokayoke { get; set; }
+
+        public string front_side { get; set; }
+        public string back_side { get; set; }
+        public string left_side { get; set; }
+        public string right_side { get; set; }
+        public string top_side { get; set; }
+        public string bottom_side { get; set; }
+        public int epn_id { get; set; }
+
+
     }
 }

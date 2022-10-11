@@ -74,6 +74,7 @@ namespace Pokayoke_Matrix
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
+                //var output = cnn.Query<Epn>(query, new DynamicParameters());
                 var output = cnn.Query<Epn>(query, new DynamicParameters());
                 return output.ToList();
             }
@@ -95,6 +96,8 @@ namespace Pokayoke_Matrix
             }
         }
 
+        //picture
+
         public static void SaveEpnsPictures(Picture picture)
         {
             using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -104,6 +107,60 @@ namespace Pokayoke_Matrix
                             (@front_side, @right_side, @left_side, @top_side, @bottom_side, @back_side, @epn_id);
                             select last_insert_rowid()", picture));
 
+            }
+        }
+
+        //pokayoke
+
+        public static int SavePokayoke(Pokayoke pokayoke)
+        {
+            using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                int lastId = Convert.ToInt32(cnn.ExecuteScalar(@"INSERT INTO tb_pokayoke (epn1_id, epn2_id, project_id, created_at) 
+                            VALUES
+                            (@epn1_id, @epn2_id, @project_id, @created_at);
+                            select last_insert_rowid()", pokayoke));
+
+
+                return lastId;
+            }
+        }
+
+        public static List<Pokayoke> Loadpokayoke(string query)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<Pokayoke>(query, new DynamicParameters());
+                return output.ToList();
+            }
+        }
+
+        //reviews
+
+        public static int SaveReview(Review review)
+        {
+            using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+
+
+                int lastId = Convert.ToInt32(cnn.ExecuteScalar(@"INSERT INTO tb_reviews (review, reviewd_by, pokayoke_id) 
+                            VALUES
+                            (@review, @reviewd_by, @pokayoke_id);
+                            select last_insert_rowid()", review));
+
+                return lastId;
+            }
+        }
+
+        //Project
+
+        public static List<Project> LoadProject()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                //var output = cnn.Query<Epn>(query, new DynamicParameters());
+                var output = cnn.Query<Project>("SELECT * FROM tb_projects", new DynamicParameters());
+                return output.ToList();
             }
         }
     }
