@@ -82,6 +82,7 @@
             this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
             this.dgvUsers = new Guna.UI.WinForms.GunaDataGridView();
             this.tabConfig = new System.Windows.Forms.TabPage();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.comboBoxProjects = new Guna.UI.WinForms.GunaComboBox();
             this.lblEpnConfig = new Guna.UI.WinForms.GunaLabel();
             this.dgvPokayoke = new Guna.UI.WinForms.GunaDataGridView();
@@ -121,7 +122,6 @@
             this.gunaCircleButton1 = new Guna.UI.WinForms.GunaCircleButton();
             this.gunaPanel3 = new Guna.UI.WinForms.GunaPanel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.gunaPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -139,6 +139,7 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.tabConfig.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPokayoke)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNotPokayoke)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllConfig)).BeginInit();
@@ -155,7 +156,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picRightSide)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picfrontSide)).BeginInit();
             this.gunaPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLogin
@@ -782,6 +782,17 @@
             this.tabConfig.Text = "Configuration";
             this.tabConfig.UseVisualStyleBackColor = true;
             // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox7.Image = global::Pokayoke_Matrix.Properties.Resources.minimize__4_;
+            this.pictureBox7.Location = new System.Drawing.Point(228, 14);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox7.TabIndex = 30;
+            this.pictureBox7.TabStop = false;
+            // 
             // comboBoxProjects
             // 
             this.comboBoxProjects.BackColor = System.Drawing.Color.Transparent;
@@ -1049,6 +1060,7 @@
             this.btnRemovePokayoke.Size = new System.Drawing.Size(65, 42);
             this.btnRemovePokayoke.TabIndex = 26;
             this.btnRemovePokayoke.Text = "<==";
+            this.btnRemovePokayoke.Click += new System.EventHandler(this.btnRemovePokayoke_Click);
             // 
             // btnAddPokayoke
             // 
@@ -1587,17 +1599,6 @@
             this.openFileDialog1.Filter = "Picture (*.jpeg, .jpg, .png)|*.jpeg;*.jpg;*.png";
             this.openFileDialog1.RestoreDirectory = true;
             // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox7.Image = global::Pokayoke_Matrix.Properties.Resources.minimize__4_;
-            this.pictureBox7.Location = new System.Drawing.Point(228, 14);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox7.TabIndex = 30;
-            this.pictureBox7.TabStop = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1636,6 +1637,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.tabConfig.ResumeLayout(false);
             this.tabConfig.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPokayoke)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNotPokayoke)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllConfig)).EndInit();
@@ -1654,7 +1656,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picRightSide)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picfrontSide)).EndInit();
             this.gunaPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
 
         }

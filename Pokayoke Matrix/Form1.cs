@@ -271,6 +271,7 @@ namespace Pokayoke_Matrix
                 pokayoke.picture.bottom_side = epn.bottom_side;
             }
            
+            pokayoke.epn_id = epn_id;
             pokayoke.ShowDialog();
         }
 
@@ -341,6 +342,11 @@ namespace Pokayoke_Matrix
 
         private void LoadPokayoke()
         {
+
+            if (dgvAllConfig.Rows.Count < 1)
+            {
+                return;
+            }
             string epn_id = dgvAllConfig.SelectedCells[0].Value.ToString();
 
             int project_id = ((KeyValuePair<int, string>)comboBoxProjects.SelectedItem).Key;
@@ -389,28 +395,18 @@ namespace Pokayoke_Matrix
             datatabelNotPokayoke.Columns.Add("Name", typeof(string));
 
 
-            foreach (Epn epn in SqliteDataAccess.LoadEpns("SELECT tb_epns.id, tb_epns.name FROM tb_epns where tb_epns.isConnector=" + isConnector + " and tb_epns.id != " + epn_id))
+            foreach (Epn epn in SqliteDataAccess.LoadEpns("SELECT tb_epns.id, tb_epns.name FROM tb_epns WHERE tb_epns.id NOT IN( SELECT tb_pokayoke.epn1_id FROM tb_epns INNER JOIN tb_pokayoke ON tb_epns.id = tb_pokayoke.epn1_id or tb_epns.id = tb_pokayoke.epn2_id WHERE tb_epns.id = "+epn_id+"   UNION SELECT tb_pokayoke.epn2_id FROM tb_epns INNER JOIN tb_pokayoke ON tb_epns.id = tb_pokayoke.epn1_id or tb_epns.id = tb_pokayoke.epn2_id WHERE tb_epns.id = "+epn_id+") AND tb_epns.id !="+ epn_id))
             {
                 datatabelNotPokayoke.Rows.Add(epn.id, epn.name);
             }
-
-
-           /* for (int i = 1; i < datatabelNotPokayoke.Rows.Count; i++)
-            {
-                Console.WriteLine(datatabelNotPokayoke.Rows.Count);
-                DataRow dataRow = dataTablePokayoke.Rows[i];
-
-                if (datatabelNotPokayoke.Rows[i] == dataRow["id"])
-                {
-                    datatabelNotPokayoke.Rows.RemoveAt(i);
-                }
-            }*/
 
             dgvNotPokayoke.DataSource = datatabelNotPokayoke;
         }
 
         private void btnAddPokayoke_Click(object sender, EventArgs e)
         {
+            if(dgvNotPokayoke.Rows.Count < 1) return;
+
             int epn_1 = (int)dgvAllConfig.SelectedCells[0].Value;
             int epn_2 = (int)dgvNotPokayoke.SelectedCells[0].Value;
             int project_id = ((KeyValuePair<int, string>)comboBoxProjects.SelectedItem).Key;
@@ -424,11 +420,19 @@ namespace Pokayoke_Matrix
             review.pokayoke_id = SqliteDataAccess.SavePokayoke(pokayoke);
             SqliteDataAccess.SaveReview(review);
 
+            FillDataGrideViewConnectors();
+            FillDataGrideViewClips();
             LoadPokayoke();
         }
 
         private void comboBoxProjects_SelectedIndexChanged(object sender, EventArgs e)
         {
+            LoadPokayoke();
+        }
+
+        private void btnRemovePokayoke_Click(object sender, EventArgs e)
+        {
+            SqliteDataAccess.DeletePokayoke((int)dgvAllConfig.SelectedCells[0].Value, (int)dgvPokayoke.SelectedCells[0].Value);
             LoadPokayoke();
         }
 
@@ -443,7 +447,7 @@ namespace Pokayoke_Matrix
             
             dgvClips.ColumnHeadersHeight = 25;
 
-            foreach (Epn epn in SqliteDataAccess.LoadEpns("SELECT tb_epns.id , tb_epns.name, tb_epns.isConnector, tb_epns.updated_at, tb_users.fullName ,count(tb_epns.id) AS CountOfPokayoke FROM tb_users INNER JOIN (tb_epns INNER JOIN tb_pokayoke ON tb_epns.id = tb_pokayoke.epn1_id or tb_epns.id = tb_pokayoke.epn2_id ) ON tb_users.id = tb_epns.created_by GROUP BY tb_epns.id,tb_epns.name HAVING tb_epns.isConnector=0"))
+            foreach (Epn epn in SqliteDataAccess.LoadEpns("SELECT tb_epns.id, tb_epns.name, tb_users.fullName,count(tb_pokayoke.id) as CountOfPokayoke FROM tb_epns INNER JOIN tb_users LEFT JOIN tb_pokayoke ON tb_epns.id = tb_pokayoke.epn1_id or tb_epns.id = tb_pokayoke.epn2_id GROUP BY tb_epns.id  HAVING tb_epns.isConnector = 0"))
             {
                 dt.Rows.Add(epn.id, epn.name, epn.CountOfPokayoke);
             }
@@ -460,7 +464,7 @@ namespace Pokayoke_Matrix
             dt.Columns.Add("Created By", typeof(string));
             dgvConnectors.ColumnHeadersHeight = 25;
 
-             foreach (Epn epn in SqliteDataAccess.LoadEpns("SELECT tb_epns.id , tb_epns.name, tb_epns.isConnector, tb_epns.updated_at, tb_users.fullName ,count(tb_epns.id) AS CountOfPokayoke FROM tb_users INNER JOIN (tb_epns INNER JOIN tb_pokayoke ON tb_epns.id = tb_pokayoke.epn1_id or tb_epns.id = tb_pokayoke.epn2_id ) ON tb_users.id = tb_epns.created_by GROUP BY tb_epns.id,tb_epns.name HAVING tb_epns.isConnector=1"))
+             foreach (Epn epn in SqliteDataAccess.LoadEpns("SELECT tb_epns.id, tb_epns.name, tb_users.fullName,count(tb_pokayoke.id) as CountOfPokayoke FROM tb_epns INNER JOIN tb_users LEFT JOIN tb_pokayoke ON tb_epns.id = tb_pokayoke.epn1_id or tb_epns.id = tb_pokayoke.epn2_id GROUP BY tb_epns.id  HAVING tb_epns.isConnector = 1"))
              {
                  dt.Rows.Add(epn.id, epn.name, epn.CountOfPokayoke, epn.fullName);
              }

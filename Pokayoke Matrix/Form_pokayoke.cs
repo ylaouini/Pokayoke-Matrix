@@ -14,6 +14,7 @@ namespace Pokayoke_Matrix
     public partial class Form_pokayoke : Form
     {
 
+        public int epn_id;
         public Epn epn;
         public Picture picture =  new Picture();
 
@@ -25,6 +26,7 @@ namespace Pokayoke_Matrix
         private void Form_pokayoke_Load(object sender, EventArgs e)
         {
 
+            this.epn = SqliteDataAccess.LoadEpn("select * from tb_epns WHERE tb_epns.id = " + epn_id);
 
           /*  Console.WriteLine("front_side : " + picture.front_side);
             Console.WriteLine("back_side : " + picture.back_side);
@@ -45,14 +47,19 @@ namespace Pokayoke_Matrix
 
 
             DataTable tableConnector = new DataTable();
+            List<Epn> epns = new List<Epn>(); 
 
-            //tableConnector = await GetConnectorListAsync();
+
+            foreach (Pokayoke pokayoke in SqliteDataAccess.Loadpokayoke("SELECT tb_pokayoke.epn1_id FROM tb_epns INNER JOIN tb_pokayoke ON tb_epns.id = tb_pokayoke.epn1_id or tb_epns.id = tb_pokayoke.epn2_id WHERE tb_epns.id = " + epn_id + "   UNION SELECT tb_pokayoke.epn2_id FROM tb_epns INNER JOIN tb_pokayoke ON tb_epns.id = tb_pokayoke.epn1_id or tb_epns.id = tb_pokayoke.epn2_id WHERE tb_epns.id = " + epn_id))
+            {
+               epns.Add(SqliteDataAccess.LoadEpn("SELECT * FROM tb_epns  INNER JOIN tb_pictures ON tb_epns.id = tb_pictures.epn_id WHERE tb_epns.id = " + pokayoke.epn1_id));
+            }
+
             List<UserControl> ts = new List<UserControl>();
-
-            PokayokeList[] lists = new PokayokeList[5];
+            PokayokeList[] lists = new PokayokeList[epns.Count];
             //ModuleValidat[] module = new  ModuleValidat[tableConnector.Rows.Count];
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < epns.Count; i++)
             {
                 lists[i] = new PokayokeList();
                // lists[i].

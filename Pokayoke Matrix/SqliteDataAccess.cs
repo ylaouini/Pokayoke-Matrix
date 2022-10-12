@@ -80,6 +80,16 @@ namespace Pokayoke_Matrix
             }
         }
 
+        public static Epn LoadEpn  (string query)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                //var output = cnn.Query<Epn>(query, new DynamicParameters());
+              
+                return cnn.QueryFirst<Epn>(query, new DynamicParameters()); ;
+            }
+        }
+
 
         public static int SaveEpns(Epn epn)
         {
@@ -132,6 +142,16 @@ namespace Pokayoke_Matrix
             {
                 var output = cnn.Query<Pokayoke>(query, new DynamicParameters());
                 return output.ToList();
+            }
+        }
+
+        public static void DeletePokayoke(int epn1, int epn2)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+
+                cnn.Query("DELETE FROM tb_pokayoke WHERE tb_pokayoke.epn1_id = "+epn1+ " and tb_pokayoke.epn2_id = "+epn2+ " OR tb_pokayoke.epn1_id = "+epn2+ " and tb_pokayoke.epn2_id = "+epn1+"", new DynamicParameters());
+                
             }
         }
 
