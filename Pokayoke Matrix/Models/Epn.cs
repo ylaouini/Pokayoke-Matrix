@@ -12,7 +12,6 @@ namespace Pokayoke_Matrix.Models
         public int id { get; set; }   
         public string name { get; set; }   
         public int  isConnector { get; set; } = 1;
-        public int isSupportClip { get; set; } = 0;
         public int  created_by { get; set; } = Variables.id;
         public int  updated_by { get; set; } = Variables.id;
         public string created_at { get; set; } = DateTime.Now.ToShortDateString();
@@ -29,6 +28,8 @@ namespace Pokayoke_Matrix.Models
         public string top_side { get; set; }
         public string bottom_side { get; set; }
         public int epn_id { get; set; }
+
+        public Pokayoke pokayoke { get; set; }
 
 
     }

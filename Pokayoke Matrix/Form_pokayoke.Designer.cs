@@ -34,29 +34,24 @@
             this.gunaLabel10 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel9 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel8 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel6 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel7 = new Guna.UI.WinForms.GunaLabel();
             this.picBackSide = new Guna.UI.WinForms.GunaPictureBox();
             this.picBottomSide = new Guna.UI.WinForms.GunaPictureBox();
             this.picTopSide = new Guna.UI.WinForms.GunaPictureBox();
             this.picLeftSide = new Guna.UI.WinForms.GunaPictureBox();
             this.picRightSide = new Guna.UI.WinForms.GunaPictureBox();
             this.picfrontSide = new Guna.UI.WinForms.GunaPictureBox();
+            this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblEpn = new Guna.UI.WinForms.GunaLabel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel2.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBackSide)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBottomSide)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTopSide)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLeftSide)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRightSide)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picfrontSide)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel2
@@ -151,97 +146,6 @@
             this.gunaLabel8.Text = "Right Side";
             this.gunaLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // gunaLabel3
-            // 
-            this.gunaLabel3.AutoSize = true;
-            this.gunaLabel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gunaLabel3.Font = new System.Drawing.Font("AktivGrotesk-Light", 12F);
-            this.gunaLabel3.Location = new System.Drawing.Point(3, 143);
-            this.gunaLabel3.Name = "gunaLabel3";
-            this.gunaLabel3.Size = new System.Drawing.Size(152, 20);
-            this.gunaLabel3.TabIndex = 24;
-            this.gunaLabel3.Text = "Front Side";
-            this.gunaLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.gunaLabel7);
-            this.panel1.Controls.Add(this.gunaLabel6);
-            this.panel1.Controls.Add(this.gunaLabel5);
-            this.panel1.Controls.Add(this.gunaLabel4);
-            this.panel1.Controls.Add(this.gunaLabel2);
-            this.panel1.Controls.Add(this.gunaLabel1);
-            this.panel1.Location = new System.Drawing.Point(968, 13);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(282, 163);
-            this.panel1.TabIndex = 21;
-            // 
-            // gunaLabel1
-            // 
-            this.gunaLabel1.AutoSize = true;
-            this.gunaLabel1.Font = new System.Drawing.Font("AktivGrotesk-Light", 12F);
-            this.gunaLabel1.Location = new System.Drawing.Point(95, 4);
-            this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(94, 19);
-            this.gunaLabel1.TabIndex = 29;
-            this.gunaLabel1.Text = "EPN123456";
-            this.gunaLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // gunaLabel2
-            // 
-            this.gunaLabel2.AutoSize = true;
-            this.gunaLabel2.Font = new System.Drawing.Font("AktivGrotesk-Light", 12F);
-            this.gunaLabel2.Location = new System.Drawing.Point(5, 86);
-            this.gunaLabel2.Name = "gunaLabel2";
-            this.gunaLabel2.Size = new System.Drawing.Size(94, 19);
-            this.gunaLabel2.TabIndex = 30;
-            this.gunaLabel2.Text = "Created By :";
-            this.gunaLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // gunaLabel4
-            // 
-            this.gunaLabel4.AutoSize = true;
-            this.gunaLabel4.Font = new System.Drawing.Font("AktivGrotesk-Light", 12F);
-            this.gunaLabel4.Location = new System.Drawing.Point(5, 120);
-            this.gunaLabel4.Name = "gunaLabel4";
-            this.gunaLabel4.Size = new System.Drawing.Size(92, 19);
-            this.gunaLabel4.TabIndex = 31;
-            this.gunaLabel4.Text = "Created At :";
-            this.gunaLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // gunaLabel5
-            // 
-            this.gunaLabel5.AutoSize = true;
-            this.gunaLabel5.Font = new System.Drawing.Font("AktivGrotesk-Light", 12F);
-            this.gunaLabel5.Location = new System.Drawing.Point(5, 52);
-            this.gunaLabel5.Name = "gunaLabel5";
-            this.gunaLabel5.Size = new System.Drawing.Size(133, 19);
-            this.gunaLabel5.TabIndex = 32;
-            this.gunaLabel5.Text = "PokaYoke Count :";
-            this.gunaLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // gunaLabel6
-            // 
-            this.gunaLabel6.AutoSize = true;
-            this.gunaLabel6.Font = new System.Drawing.Font("AktivGrotesk-Light", 12F);
-            this.gunaLabel6.Location = new System.Drawing.Point(105, 86);
-            this.gunaLabel6.Name = "gunaLabel6";
-            this.gunaLabel6.Size = new System.Drawing.Size(129, 19);
-            this.gunaLabel6.TabIndex = 33;
-            this.gunaLabel6.Text = "Yassine LAOUINI";
-            this.gunaLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // gunaLabel7
-            // 
-            this.gunaLabel7.AutoSize = true;
-            this.gunaLabel7.Font = new System.Drawing.Font("AktivGrotesk-Light", 12F);
-            this.gunaLabel7.Location = new System.Drawing.Point(125, 120);
-            this.gunaLabel7.Name = "gunaLabel7";
-            this.gunaLabel7.Size = new System.Drawing.Size(91, 19);
-            this.gunaLabel7.TabIndex = 34;
-            this.gunaLabel7.Text = "10/10/2022";
-            this.gunaLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // picBackSide
             // 
             this.picBackSide.BaseColor = System.Drawing.Color.Black;
@@ -320,6 +224,38 @@
             this.picfrontSide.TabIndex = 18;
             this.picfrontSide.TabStop = false;
             // 
+            // gunaLabel3
+            // 
+            this.gunaLabel3.AutoSize = true;
+            this.gunaLabel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gunaLabel3.Font = new System.Drawing.Font("AktivGrotesk-Light", 12F);
+            this.gunaLabel3.Location = new System.Drawing.Point(3, 143);
+            this.gunaLabel3.Name = "gunaLabel3";
+            this.gunaLabel3.Size = new System.Drawing.Size(152, 20);
+            this.gunaLabel3.TabIndex = 24;
+            this.gunaLabel3.Text = "Front Side";
+            this.gunaLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lblEpn);
+            this.panel1.Location = new System.Drawing.Point(968, 13);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(282, 163);
+            this.panel1.TabIndex = 21;
+            // 
+            // lblEpn
+            // 
+            this.lblEpn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblEpn.AutoSize = true;
+            this.lblEpn.Font = new System.Drawing.Font("AktivGrotesk-Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEpn.Location = new System.Drawing.Point(61, 61);
+            this.lblEpn.Name = "lblEpn";
+            this.lblEpn.Size = new System.Drawing.Size(163, 31);
+            this.lblEpn.TabIndex = 29;
+            this.lblEpn.Text = "EPN123456";
+            this.lblEpn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
@@ -349,14 +285,14 @@
             this.Load += new System.EventHandler(this.Form_pokayoke_Load);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBackSide)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBottomSide)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTopSide)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLeftSide)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRightSide)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picfrontSide)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -376,12 +312,7 @@
         private Guna.UI.WinForms.GunaPictureBox picfrontSide;
         private Guna.UI.WinForms.GunaLabel gunaLabel3;
         private System.Windows.Forms.Panel panel1;
-        private Guna.UI.WinForms.GunaLabel gunaLabel7;
-        private Guna.UI.WinForms.GunaLabel gunaLabel6;
-        private Guna.UI.WinForms.GunaLabel gunaLabel5;
-        private Guna.UI.WinForms.GunaLabel gunaLabel4;
-        private Guna.UI.WinForms.GunaLabel gunaLabel2;
-        private Guna.UI.WinForms.GunaLabel gunaLabel1;
+        private Guna.UI.WinForms.GunaLabel lblEpn;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,13 +18,19 @@ namespace Pokayoke_Matrix
     {
 
         FileDialog   picLeftFile, picRightFile ,picFrontFile, picTopFile, picBottomFile, picBackFile;
-      
+
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HTCAPTION = 0x2;
+        [DllImport("User32.dll")]
+        public static extern bool ReleaseCapture();
+        [DllImport("User32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
+
         public Form1()
         {
             InitializeComponent();
         }
-
-
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -46,9 +53,13 @@ namespace Pokayoke_Matrix
             //Test input
             if ( String.IsNullOrWhiteSpace(txtEPN.Text)) { return; }
 
+            //Test if EPN existe
+            if (SqliteDataAccess.ModelEpnExists(txtEPN.Text)) MessageBox.Show("Epn already Exist");
+            
+
             //Test image
 
-            if(picFrontFile.FileName == null || picBackFile.FileName == null || picRightFile.FileName == null || picLeftFile.FileName == null || picTopFile.FileName == null || picBottomFile.FileName == null)
+            if(picFrontFile == null || picBackFile == null || picRightFile == null || picLeftFile == null || picTopFile == null || picBottomFile == null)
             {
                 return;
             }
@@ -63,10 +74,10 @@ namespace Pokayoke_Matrix
             if (switchIsClip.Checked)
             {
                 isConnector = false;
-                if (switchIsClipSupport.Checked)
+/*                if (switchIsClipSupport.Checked)
                 {
                     epn.isSupportClip = 1;
-                }
+                }*/
             }
 
             if (!isConnector) epn.isConnector = 0;
@@ -78,11 +89,6 @@ namespace Pokayoke_Matrix
 
             try
             {
-                Console.WriteLine(picFrontFile.FileName);
-                Console.WriteLine(picBackFile.FileName);
-                Console.WriteLine(picLeftFile.FileName);
-                Console.WriteLine(picRightFile.FileName);
-                Console.WriteLine(picTopFile.FileName);
                 
                 File.Copy(picfrontSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_FrontSide" + Path.GetExtension(picFrontFile.FileName));
                 File.Copy(picBackSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_BackSide" + Path.GetExtension(picBackFile.FileName));
@@ -118,6 +124,17 @@ namespace Pokayoke_Matrix
             FillDataGrideViewEpn();
             FillDataGrideViewClips();
             FillDataGrideViewConnectors();
+
+
+            //init input
+            txtEPN.Text = "";
+            picLeftSide.ImageLocation = "";
+            picRightSide.ImageLocation = "";
+            picTopSide.ImageLocation = "";
+            picBottomSide.ImageLocation = "";
+            picfrontSide.ImageLocation = "";
+            picBackSide.ImageLocation = "";
+            
         }
 
         private void FillDataGrideViewUser()
@@ -209,6 +226,7 @@ namespace Pokayoke_Matrix
 
         private void picRightSide_Click(object sender, EventArgs e)
         {
+            openFileDialog1.Title = "Right Side";
             openFileDialog1.ShowDialog();
             this.picRightFile = openFileDialog1;
             picRightSide.ImageLocation = this.picRightFile.FileName;
@@ -216,6 +234,7 @@ namespace Pokayoke_Matrix
 
         private void picLeftSide_Click(object sender, EventArgs e)
         {
+            openFileDialog1.Title = "Left Side";
             openFileDialog1.ShowDialog();
             this.picLeftFile = openFileDialog1;
             picLeftSide.ImageLocation = this.picLeftFile.FileName;
@@ -223,6 +242,7 @@ namespace Pokayoke_Matrix
 
         private void picTopSide_Click(object sender, EventArgs e)
         {
+            openFileDialog1.Title = "Top Side";
             openFileDialog1.ShowDialog();
             this.picTopFile = openFileDialog1;
             picTopSide.ImageLocation = this.picTopFile.FileName;
@@ -230,6 +250,7 @@ namespace Pokayoke_Matrix
 
         private void picBottomSide_Click(object sender, EventArgs e)
         {
+            openFileDialog1.Title = "Bottom Side";
             openFileDialog1.ShowDialog();
             this.picBottomFile = openFileDialog1;
             picBottomSide.ImageLocation = this.picBottomFile.FileName;
@@ -237,6 +258,7 @@ namespace Pokayoke_Matrix
 
         private void picBackSide_Click(object sender, EventArgs e)
         {
+            openFileDialog1.Title = "Back Side";
             openFileDialog1.ShowDialog();
             this.picBackFile = openFileDialog1;
             picBackSide.ImageLocation = this.picFrontFile.FileName;
@@ -412,13 +434,15 @@ namespace Pokayoke_Matrix
             int project_id = ((KeyValuePair<int, string>)comboBoxProjects.SelectedItem).Key;
 
             Pokayoke pokayoke = new Pokayoke();
-            Review review = new Review();
+          /*  Review review = new Review();*/
             pokayoke.epn1_id = epn_1;
             pokayoke.epn2_id = epn_2;
             pokayoke.project_id = project_id;
 
-            review.pokayoke_id = SqliteDataAccess.SavePokayoke(pokayoke);
-            SqliteDataAccess.SaveReview(review);
+            SqliteDataAccess.SavePokayoke(pokayoke);
+
+            /*review.pokayoke_id = SqliteDataAccess.SavePokayoke(pokayoke);
+            SqliteDataAccess.SaveReview(review);*/
 
             FillDataGrideViewConnectors();
             FillDataGrideViewClips();
@@ -432,8 +456,106 @@ namespace Pokayoke_Matrix
 
         private void btnRemovePokayoke_Click(object sender, EventArgs e)
         {
+            if (dgvPokayoke.Rows.Count < 1) return;
             SqliteDataAccess.DeletePokayoke((int)dgvAllConfig.SelectedCells[0].Value, (int)dgvPokayoke.SelectedCells[0].Value);
+
+            FillDataGrideViewConnectors();
+            FillDataGrideViewClips();
             LoadPokayoke();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnMaximize_Click(object sender, EventArgs e)
+        {
+
+            if(WindowState == FormWindowState.Maximized)
+            {
+                WindowState = FormWindowState.Normal;
+                btnMaximize.Image = global::Pokayoke_Matrix.Properties.Resources.maximize;
+            }
+            else
+            {
+                WindowState = FormWindowState.Maximized;
+                btnMaximize.Image = global::Pokayoke_Matrix.Properties.Resources.minimize__4_;
+                
+            }
+            
+        }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void txtSearchEPN_TextChanged(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtSearchCon.Text))
+            {
+                FillDataGrideViewConnectors();
+                return;
+            }
+            if (String.IsNullOrWhiteSpace(txtSearchCon.Text))
+            {
+                return;
+            }
+
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("ID", typeof(int));
+            dt.Columns.Add("EPN", typeof(string));
+            dt.Columns.Add("Count of Pokayakes", typeof(int));
+            dt.Columns.Add("Created By", typeof(string));
+            dgvConnectors.ColumnHeadersHeight = 25;
+
+            foreach (Epn epn in SqliteDataAccess.LoadEpns("SELECT tb_epns.id , tb_epns.name, tb_epns.isConnector, tb_epns.updated_at, tb_users.fullName ,count(tb_epns.id) AS CountOfPokayoke FROM tb_users INNER JOIN (tb_epns INNER JOIN tb_pokayoke ON tb_epns.id = tb_pokayoke.epn1_id or tb_epns.id = tb_pokayoke.epn2_id ) ON tb_users.id = tb_epns.created_by GROUP BY tb_epns.id,tb_epns.name HAVING tb_epns.isConnector=1 AND tb_epns.name LIKE '%" + txtSearchCon.Text + "%'"))
+            {
+                dt.Rows.Add(epn.id, epn.name, epn.CountOfPokayoke, epn.fullName);
+            }
+
+            dgvConnectors.DataSource = dt;
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabControl1.TabPages["tabHome"];
+        }
+
+        private void btnConnectors_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabControl1.TabPages["tabConnectors"];
+        }
+
+        private void btnClips_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabControl1.TabPages["tabClips"];
+        }
+
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabControl1.TabPages["tabUsers"];
+        }
+
+        private void btnEpns_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabControl1.TabPages["tabEpn"];
+        }
+
+        private void btnConfig_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabControl1.TabPages["tabConfig"];
+        }
+
+        private void gunaPanel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
+            }
         }
 
         private void FillDataGrideViewClips()
@@ -475,24 +597,13 @@ namespace Pokayoke_Matrix
 
         private void picfrontSide_Click(object sender, EventArgs e)
         {
+            openFileDialog1.Title = "Front Side";
             openFileDialog1.ShowDialog();
             this.picFrontFile = openFileDialog1;
             picfrontSide.ImageLocation = this.picFrontFile.FileName;
         }
 
-        private void switchIsClip_CheckedChanged(object sender, EventArgs e)
-        {
-            if (switchIsClip.Checked)
-            {
-                lblClipSupport.Visible = true;
-                switchIsClipSupport.Visible = true;
-            }
-            else
-            {
-                lblClipSupport.Visible = false;
-                switchIsClipSupport.Visible = false;
-            }
-        }
+
 
         private void gunaButton1_Click(object sender, EventArgs e)
         {

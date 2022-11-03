@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Data.SQLite;
 using Dapper;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace Pokayoke_Matrix
 {
@@ -63,7 +64,6 @@ namespace Pokayoke_Matrix
 
             }
 
-            
                 return true;
         }
 
@@ -95,9 +95,9 @@ namespace Pokayoke_Matrix
         {
             using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                int lastId = Convert.ToInt32(cnn.ExecuteScalar(@"INSERT INTO tb_epns (name, isConnector, isSupportClip, created_by, updated_by, created_at, updated_at) 
+                int lastId = Convert.ToInt32(cnn.ExecuteScalar(@"INSERT INTO tb_epns (name, isConnector, created_by, updated_by, created_at, updated_at) 
                             VALUES
-                            (@name, @isConnector, @isSupportClip, @created_by, @updated_by, @created_at, @updated_at);
+                            (@name, @isConnector, @created_by, @updated_by, @created_at, @updated_at);
                             select last_insert_rowid()",epn));
 
                 //Console.WriteLine(lastId);
@@ -182,6 +182,25 @@ namespace Pokayoke_Matrix
                 var output = cnn.Query<Project>("SELECT * FROM tb_projects", new DynamicParameters());
                 return output.ToList();
             }
+        }
+
+        //TOOLS
+
+        public static bool ModelEpnExists(string name)
+        {
+
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<Pokayoke>("SELECT * FROM tb_epns WHERE name = '"+name+"'", new DynamicParameters());
+                output.Count();
+
+                if (output.Count() > 0)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }
