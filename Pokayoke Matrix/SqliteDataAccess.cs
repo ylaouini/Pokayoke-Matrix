@@ -17,14 +17,14 @@ namespace Pokayoke_Matrix
     {
 
 
-        private static string LoadConnectionString(string id ="Default")
+        private static string LoadConnectionString(string id = "Default")
         {
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;
         }
 
         //Users
 
-       
+
         public static List<User> LoadUsers()
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -37,7 +37,7 @@ namespace Pokayoke_Matrix
 
         public static void SaveUsers(User user)
         {
-            using(IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 cnn.Execute(@"INSERT INTO tb_users (fullName, personnelID, password, role, email, created_by, created_at) 
                             VALUES
@@ -47,15 +47,15 @@ namespace Pokayoke_Matrix
 
         public static bool Login(string personnelID, string password)
         {
-            using (IDbConnection cnn =  new SQLiteConnection(LoadConnectionString()))
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<User>("SELECT * FROM tb_users WHERE personnelID="+personnelID);
+                var output = cnn.Query<User>("SELECT * FROM tb_users WHERE personnelID=" + personnelID);
 
                 if (output.ToList().Count != 1) return false;
 
-                if (output.First().password != password ) return false;
+                if (output.First().password != password) return false;
 
-              
+
                 Variables.id = output.First().id;
                 Variables.email = output.First().email;
                 Variables.personnelID = personnelID;
@@ -64,7 +64,7 @@ namespace Pokayoke_Matrix
 
             }
 
-                return true;
+            return true;
         }
 
 
@@ -80,12 +80,12 @@ namespace Pokayoke_Matrix
             }
         }
 
-        public static Epn LoadEpn  (string query)
+        public static Epn LoadEpn(string query)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 //var output = cnn.Query<Epn>(query, new DynamicParameters());
-              
+
                 return cnn.QueryFirst<Epn>(query, new DynamicParameters()); ;
             }
         }
@@ -98,11 +98,11 @@ namespace Pokayoke_Matrix
                 int lastId = Convert.ToInt32(cnn.ExecuteScalar(@"INSERT INTO tb_epns (name, isConnector, created_by, updated_by, created_at, updated_at) 
                             VALUES
                             (@name, @isConnector, @created_by, @updated_by, @created_at, @updated_at);
-                            select last_insert_rowid()",epn));
+                            select last_insert_rowid()", epn));
 
                 //Console.WriteLine(lastId);
 
-               return lastId;
+                return lastId;
             }
         }
 
@@ -149,11 +149,24 @@ namespace Pokayoke_Matrix
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-
-                cnn.Query("DELETE FROM tb_pokayoke WHERE tb_pokayoke.epn1_id = "+epn1+ " and tb_pokayoke.epn2_id = "+epn2+ " OR tb_pokayoke.epn1_id = "+epn2+ " and tb_pokayoke.epn2_id = "+epn1+"", new DynamicParameters());
-                
+                cnn.Query("DELETE FROM tb_pokayoke WHERE tb_pokayoke.epn1_id = " + epn1 + " and tb_pokayoke.epn2_id = " + epn2 + " OR tb_pokayoke.epn1_id = " + epn2 + " and tb_pokayoke.epn2_id = " + epn1 + "", new DynamicParameters());
             }
         }
+
+        public static string getDateOfPoka(int epn1, int epn2)
+        {
+            using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var query = @"SELECT created_at FROM tb_pokayoke where epn1_id = " + epn1 + " and epn2_id = " + epn2 + " or " +
+                    "epn1_id = " + epn2 + " and epn2_id = " + epn1;
+
+                Console.WriteLine(query);
+                string date =  (String)cnn.ExecuteScalar(query);
+                Console.WriteLine("Date: "+date);
+                return date;
+            }
+        }
+
 
         //reviews
 
@@ -161,8 +174,6 @@ namespace Pokayoke_Matrix
         {
             using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-
-
                 int lastId = Convert.ToInt32(cnn.ExecuteScalar(@"INSERT INTO tb_reviews (review, reviewd_by, pokayoke_id) 
                             VALUES
                             (@review, @reviewd_by, @pokayoke_id);
@@ -202,5 +213,7 @@ namespace Pokayoke_Matrix
 
             return false;
         }
+
+
     }
 }

@@ -47,7 +47,7 @@ namespace Pokayoke_Matrix
 
                 if (pokayoke.epn1_id != epn_id)
                 {
-                    epns.Add(SqliteDataAccess.LoadEpn("SELECT * FROM tb_epns INNER JOIN tb_pictures ON tb_epns.id = tb_pictures.epn_id WHERE tb_epns.id = " + pokayoke.epn1_id));
+                    epns.Add(SqliteDataAccess.LoadEpn("SELECT tb_epns.id, tb_epns.name, back_side, bottom_side, front_side, top_side,left_side,right_side FROM tb_epns INNER JOIN tb_pictures ON tb_epns.id = tb_pictures.epn_id WHERE tb_epns.id = " + pokayoke.epn1_id));
                     
                 }
               
@@ -68,7 +68,7 @@ namespace Pokayoke_Matrix
                 lists[0].picfrontSide.ImageLocation = epn.front_side ;
                 lists[0].picTopSide.ImageLocation = epn.top_side ;
 
-               // lists[0].lblDateOfPokayokeCreate.Text = epn. ;
+               lists[0].lblDateOfPokayokeCreate.Text = SqliteDataAccess.getDateOfPoka(epn.id, epn_id);
 
 
                 ts.Add((PokayokeList)lists[0]);

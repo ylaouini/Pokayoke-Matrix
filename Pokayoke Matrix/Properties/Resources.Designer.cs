@@ -61,6 +61,16 @@ namespace Pokayoke_Matrix.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1_Lear_Preferred_Color {
+            get {
+                object obj = ResourceManager.GetObject("1.Lear Preferred_Color", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] AktivGrotesk_Light {
