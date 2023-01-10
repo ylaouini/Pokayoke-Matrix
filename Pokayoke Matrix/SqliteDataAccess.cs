@@ -160,9 +160,7 @@ namespace Pokayoke_Matrix
                 var query = @"SELECT created_at FROM tb_pokayoke where epn1_id = " + epn1 + " and epn2_id = " + epn2 + " or " +
                     "epn1_id = " + epn2 + " and epn2_id = " + epn1;
 
-                Console.WriteLine(query);
                 string date =  (String)cnn.ExecuteScalar(query);
-                Console.WriteLine("Date: "+date);
                 return date;
             }
         }

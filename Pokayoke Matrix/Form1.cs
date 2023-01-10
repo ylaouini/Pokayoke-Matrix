@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Pokayoke_Matrix
 {
@@ -79,10 +80,6 @@ namespace Pokayoke_Matrix
             if (switchIsClip.Checked)
             {
                 isConnector = false;
-/*                if (switchIsClipSupport.Checked)
-                {
-                    epn.isSupportClip = 1;
-                }*/
             }
 
             if (!isConnector) epn.isConnector = 0;
@@ -115,12 +112,21 @@ namespace Pokayoke_Matrix
             Picture picture =  new Picture();
             picture.epn_id = idEpn;
 
-            picture.front_side = Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_FrontSide" + Path.GetExtension(picFrontFile.FileName);
+            /*picture.front_side = Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_FrontSide" + Path.GetExtension(picFrontFile.FileName);
             picture.back_side = Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_BackSide" + Path.GetExtension(picBackFile.FileName);
             picture.left_side = Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_LeftSide" + Path.GetExtension(picLeftFile.FileName);
             picture.right_side = Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_RightSide" + Path.GetExtension(picRightFile.FileName);
             picture.top_side = Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_TopSide" + Path.GetExtension(picTopFile.FileName);
             picture.bottom_side = Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_BottomSide" + Path.GetExtension(picBottomFile.FileName);
+*/
+
+
+            picture.front_side = "\\\\MaTAN-FP01\\Groups\\Dep\\Machine Book\\New Machine book\\Poka\\Pictures\\" + txtEPN.Text + "_FrontSide" + Path.GetExtension(picFrontFile.FileName);
+            picture.back_side = "\\\\MaTAN-FP01\\Groups\\Dep\\Machine Book\\New Machine book\\Poka\\Pictures\\" + txtEPN.Text + "_BackSide" + Path.GetExtension(picBackFile.FileName);
+            picture.left_side = "\\\\MaTAN-FP01\\Groups\\Dep\\Machine Book\\New Machine book\\Poka\\Pictures\\" + txtEPN.Text + "_LeftSide" + Path.GetExtension(picLeftFile.FileName);
+            picture.right_side = "\\\\MaTAN-FP01\\Groups\\Dep\\Machine Book\\New Machine book\\Poka\\Pictures\\" + txtEPN.Text + "_RightSide" + Path.GetExtension(picRightFile.FileName);
+            picture.top_side = "\\\\MaTAN-FP01\\Groups\\Dep\\Machine Book\\New Machine book\\Poka\\Pictures\\" + txtEPN.Text + "_TopSide" + Path.GetExtension(picTopFile.FileName);
+            picture.bottom_side = "\\\\MaTAN-FP01\\Groups\\Dep\\Machine Book\\New Machine book\\Poka\\Pictures\\" + txtEPN.Text + "_BottomSide" + Path.GetExtension(picBottomFile.FileName);
 
             SqliteDataAccess.SaveEpnsPictures(picture);
 
@@ -571,8 +577,10 @@ namespace Pokayoke_Matrix
 
         private void btnExportClips_Click(object sender, EventArgs e)
         {
-
         }
+
+       
+
 
         private void dgvClips_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
