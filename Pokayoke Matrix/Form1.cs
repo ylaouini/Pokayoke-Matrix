@@ -65,7 +65,7 @@ namespace Pokayoke_Matrix
 
             //Test image
 
-            if(picFrontFile == null || picBackFile == null || picRightFile == null || picLeftFile == null || picTopFile == null || picBottomFile == null)
+            if(picFrontFile == null || picBottomFile == null || picTopFile == null)
             {
                 return;
             }
@@ -91,14 +91,25 @@ namespace Pokayoke_Matrix
 
             try
             {
-                
-                File.Copy(picfrontSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_FrontSide" + Path.GetExtension(picFrontFile.FileName));
-                File.Copy(picBackSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_BackSide" + Path.GetExtension(picBackFile.FileName));
-                File.Copy(picLeftSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_LeftSide" + Path.GetExtension(picLeftFile.FileName));
-                File.Copy(picRightSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_RightSide" + Path.GetExtension(picRightFile.FileName));
                 File.Copy(picTopSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_TopSide" + Path.GetExtension(picTopFile.FileName));
                 File.Copy(picBottomSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_BottomSide" + Path.GetExtension(picBottomFile.FileName));
-                
+                File.Copy(picfrontSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_FrontSide" + Path.GetExtension(picFrontFile.FileName));
+
+                if (picBackFile != null)
+                {
+                    File.Copy(picBackSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_BackSide" + Path.GetExtension(picBackFile.FileName));
+                }
+
+                if (picLeftFile != null)
+                {
+                    File.Copy(picLeftSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_LeftSide" + Path.GetExtension(picLeftFile.FileName));
+                }
+
+                if (picRightFile != null)
+                {
+                    File.Copy(picRightSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_RightSide" + Path.GetExtension(picRightFile.FileName));
+                }
+
             }
             catch (System.IO.IOException ex)
             {
@@ -117,16 +128,47 @@ namespace Pokayoke_Matrix
             picture.left_side = Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_LeftSide" + Path.GetExtension(picLeftFile.FileName);
             picture.right_side = Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_RightSide" + Path.GetExtension(picRightFile.FileName);
             picture.top_side = Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_TopSide" + Path.GetExtension(picTopFile.FileName);
-            picture.bottom_side = Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_BottomSide" + Path.GetExtension(picBottomFile.FileName);
-*/
+            picture.bottom_side = Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_BottomSide" + Path.GetExtension(picBottomFile.FileName);*/
 
 
-            picture.front_side = "\\\\MaTAN-FP01\\Groups\\Dep\\Machine Book\\New Machine book\\Poka\\Pictures\\" + txtEPN.Text + "_FrontSide" + Path.GetExtension(picFrontFile.FileName);
-            picture.back_side = "\\\\MaTAN-FP01\\Groups\\Dep\\Machine Book\\New Machine book\\Poka\\Pictures\\" + txtEPN.Text + "_BackSide" + Path.GetExtension(picBackFile.FileName);
-            picture.left_side = "\\\\MaTAN-FP01\\Groups\\Dep\\Machine Book\\New Machine book\\Poka\\Pictures\\" + txtEPN.Text + "_LeftSide" + Path.GetExtension(picLeftFile.FileName);
-            picture.right_side = "\\\\MaTAN-FP01\\Groups\\Dep\\Machine Book\\New Machine book\\Poka\\Pictures\\" + txtEPN.Text + "_RightSide" + Path.GetExtension(picRightFile.FileName);
-            picture.top_side = "\\\\MaTAN-FP01\\Groups\\Dep\\Machine Book\\New Machine book\\Poka\\Pictures\\" + txtEPN.Text + "_TopSide" + Path.GetExtension(picTopFile.FileName);
+           /* picture.top_side = "\\\\MaTAN-FP01\\Groups\\Dep\\Machine Book\\New Machine book\\Poka\\Pictures\\" + txtEPN.Text + "_TopSide" + Path.GetExtension(picTopFile.FileName);
             picture.bottom_side = "\\\\MaTAN-FP01\\Groups\\Dep\\Machine Book\\New Machine book\\Poka\\Pictures\\" + txtEPN.Text + "_BottomSide" + Path.GetExtension(picBottomFile.FileName);
+            picture.front_side = "\\\\MaTAN-FP01\\Groups\\Dep\\Machine Book\\New Machine book\\Poka\\Pictures\\" + txtEPN.Text + "_FrontSide" + Path.GetExtension(picFrontFile.FileName);
+
+            if (picBackFile != null)
+            {
+                picture.back_side = "\\\\MaTAN-FP01\\Groups\\Dep\\Machine Book\\New Machine book\\Poka\\Pictures\\" + txtEPN.Text + "_BackSide" + Path.GetExtension(picBackFile.FileName);
+            }
+
+            if (picLeftFile != null)
+            {
+                picture.left_side = "\\\\MaTAN-FP01\\Groups\\Dep\\Machine Book\\New Machine book\\Poka\\Pictures\\" + txtEPN.Text + "_LeftSide" + Path.GetExtension(picLeftFile.FileName);
+            }
+
+            if (picRightFile != null)
+            {
+                picture.right_side = "\\\\MaTAN-FP01\\Groups\\Dep\\Machine Book\\New Machine book\\Poka\\Pictures\\" + txtEPN.Text + "_RightSide" + Path.GetExtension(picRightFile.FileName);
+            }*/
+
+            picture.top_side = txtEPN.Text + "_TopSide" + Path.GetExtension(picTopFile.FileName);
+            picture.bottom_side =  txtEPN.Text + "_BottomSide" + Path.GetExtension(picBottomFile.FileName);
+            picture.front_side =  txtEPN.Text + "_FrontSide" + Path.GetExtension(picFrontFile.FileName);
+
+            if (picBackFile != null)
+            {
+                picture.back_side =  txtEPN.Text + "_BackSide" + Path.GetExtension(picBackFile.FileName);
+            }
+
+            if (picLeftFile != null)
+            {
+                picture.left_side =  txtEPN.Text + "_LeftSide" + Path.GetExtension(picLeftFile.FileName);
+            }
+
+            if (picRightFile != null)
+            {
+                picture.right_side = txtEPN.Text + "_RightSide" + Path.GetExtension(picRightFile.FileName);
+            }
+
 
             SqliteDataAccess.SaveEpnsPictures(picture);
 
@@ -187,9 +229,11 @@ namespace Pokayoke_Matrix
             dgvAllEpn.ColumnHeadersHeight = 25;
             dgvAllConfig.ColumnHeadersHeight = 25;
 
-            string type = "Connector";
+            
             foreach (Epn epn in SqliteDataAccess.LoadEpns("SELECT * FROM tb_epns"))
             {
+                string type = "Connector";
+                Console.WriteLine(epn.isConnector);
                 if (epn.isConnector != 1)
                 {
                     type = "Clip";
@@ -296,20 +340,13 @@ namespace Pokayoke_Matrix
             int epn_id = (int)dgvConnectors.SelectedCells[0].Value;
             foreach (Epn epn in SqliteDataAccess.LoadEpns("SELECT * FROM tb_epns INNER JOIN (tb_pictures) ON tb_epns.id = tb_pictures.epn_id WHERE tb_epns.id="+epn_id))
             {
-        /*        Console.WriteLine("name : " + epn.name);
-                Console.WriteLine("id : " + epn.id);
-                Console.WriteLine("front_side : " + epn.front_side);
-                Console.WriteLine("back_side : " + epn.back_side);
-                Console.WriteLine("left_side : " + epn.left_side);
-                Console.WriteLine("right_side : " + epn.right_side);
-                Console.WriteLine("top_side : " + epn.top_side);
-                Console.WriteLine("bottom_side : " + epn.bottom_side);*/
-                pokayoke.picture.back_side = epn.back_side;
-                pokayoke.picture.front_side = epn.front_side;
-                pokayoke.picture.left_side = epn.front_side;
-                pokayoke.picture.right_side = epn.right_side;
-                pokayoke.picture.top_side = epn.top_side;
-                pokayoke.picture.bottom_side = epn.bottom_side;
+     
+                pokayoke.picture.back_side = Application.StartupPath + "\\Pictures\\" + epn.back_side;
+                pokayoke.picture.front_side = Application.StartupPath + "\\Pictures\\" + epn.front_side;
+                pokayoke.picture.left_side = Application.StartupPath + "\\Pictures\\" + epn.front_side;
+                pokayoke.picture.right_side = Application.StartupPath + "\\Pictures\\" + epn.right_side;
+                pokayoke.picture.top_side = Application.StartupPath + "\\Pictures\\" + epn.top_side;
+                pokayoke.picture.bottom_side = Application.StartupPath + "\\Pictures\\" + epn.bottom_side;
             }
            
             pokayoke.epn_id = epn_id;
@@ -390,6 +427,11 @@ namespace Pokayoke_Matrix
             }
             string epn_id = dgvAllConfig.SelectedCells[0].Value.ToString();
 
+            if (comboBoxProjects.SelectedItem == null)
+            {
+                MessageBox.Show("Please add at least one project");
+                return;
+            }
             int project_id = ((KeyValuePair<int, string>)comboBoxProjects.SelectedItem).Key;
 
 
@@ -602,6 +644,11 @@ namespace Pokayoke_Matrix
             pokayoke.ShowDialog();
         }
 
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void gunaPanel1_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -617,14 +664,15 @@ namespace Pokayoke_Matrix
             dt.Columns.Add("ID", typeof(int));
             dt.Columns.Add("EPN", typeof(string));
             dt.Columns.Add("Count of Pokayakes", typeof(int));
-            dt.Columns.Add("Created By", typeof(string));
+           // dt.Columns.Add("Created By", typeof(string));
 
             
             dgvClips.ColumnHeadersHeight = 25;
 
-            foreach (Epn epn in SqliteDataAccess.LoadEpns("SELECT tb_epns.id, tb_epns.name, tb_users.fullName,count(tb_pokayoke.id) as CountOfPokayoke FROM tb_epns INNER JOIN tb_users LEFT JOIN tb_pokayoke ON tb_epns.id = tb_pokayoke.epn1_id or tb_epns.id = tb_pokayoke.epn2_id GROUP BY tb_epns.id  HAVING tb_epns.isConnector = 0"))
+            foreach (Epn epn in SqliteDataAccess.LoadEpns("SELECT tb_epns.id, tb_epns.name,count(tb_pokayoke.id) as CountOfPokayoke,tb_epns.created_by FROM tb_epns LEFT JOIN tb_pokayoke ON tb_epns.id = tb_pokayoke.epn1_id or tb_epns.id = tb_pokayoke.epn2_id GROUP BY tb_epns.id  HAVING tb_epns.isConnector = 0"))
             {
-                dt.Rows.Add(epn.id, epn.name, epn.CountOfPokayoke);
+                //dt.Rows.Add(epn.id, epn.name, epn.CountOfPokayoke);
+                dt.Rows.Add(epn.id, epn.name);
             }
 
             dgvClips.DataSource = dt;
@@ -636,12 +684,13 @@ namespace Pokayoke_Matrix
             dt.Columns.Add("ID", typeof(int));
             dt.Columns.Add("EPN", typeof(string));
             dt.Columns.Add("Count of Pokayakes", typeof(int));
-            dt.Columns.Add("Created By", typeof(string));
+           // dt.Columns.Add("Created By", typeof(int));
             dgvConnectors.ColumnHeadersHeight = 25;
 
-             foreach (Epn epn in SqliteDataAccess.LoadEpns("SELECT tb_epns.id, tb_epns.name, tb_users.fullName,count(tb_pokayoke.id) as CountOfPokayoke FROM tb_epns INNER JOIN tb_users LEFT JOIN tb_pokayoke ON tb_epns.id = tb_pokayoke.epn1_id or tb_epns.id = tb_pokayoke.epn2_id GROUP BY tb_epns.id  HAVING tb_epns.isConnector = 1"))
+             foreach (Epn epn in SqliteDataAccess.LoadEpns("SELECT tb_epns.id, tb_epns.name,count(tb_pokayoke.id) as CountOfPokayoke,tb_epns.created_by FROM tb_epns LEFT JOIN tb_pokayoke ON tb_epns.id = tb_pokayoke.epn1_id or tb_epns.id = tb_pokayoke.epn2_id GROUP BY tb_epns.id  HAVING tb_epns.isConnector = 1"))
              {
-                 dt.Rows.Add(epn.id, epn.name, epn.CountOfPokayoke, epn.fullName);
+                // dt.Rows.Add(epn.id, epn.name, epn.CountOfPokayoke, epn.created_by);
+                 dt.Rows.Add(epn.id, epn.name, epn.CountOfPokayoke);
              }
 
             dgvConnectors.DataSource = dt;
@@ -656,11 +705,11 @@ namespace Pokayoke_Matrix
             picfrontSide.ImageLocation = this.picFrontFile.FileName;
         }
 
-
-
         private void gunaButton1_Click(object sender, EventArgs e)
         {
            Console.WriteLine( this.picFrontFile.FileName);
         }
+
+     
     }
 }
