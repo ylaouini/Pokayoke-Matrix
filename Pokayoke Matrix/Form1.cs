@@ -1,4 +1,5 @@
-﻿using Pokayoke_Matrix.Models;
+﻿using Guna.UI.WinForms;
+using Pokayoke_Matrix.Models;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace Pokayoke_Matrix
     public partial class Form1 : Form
     {
 
-        FileDialog   picLeftFile, picRightFile ,picFrontFile, picTopFile, picBottomFile, picBackFile;
+      //  FileDialog   picLeftFile, picRightFile ,picFrontFile, picTopFile, picBottomFile, picBackFile;
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HTCAPTION = 0x2;
@@ -59,119 +60,97 @@ namespace Pokayoke_Matrix
             //Test input
             if ( String.IsNullOrWhiteSpace(txtEPN.Text)) { return; }
 
-            //Test if EPN existe
-            if (SqliteDataAccess.ModelEpnExists(txtEPN.Text)) MessageBox.Show("Epn already Exist");
-            
-
             //Test image
 
-            if(picFrontFile == null || picBottomFile == null || picTopFile == null)
+            if (picFrontSide.ImageLocation == null || picBottomSide.ImageLocation == null || picTopSide.ImageLocation == null)
             {
                 return;
             }
 
-            // Insert EPN
 
-            bool isConnector = true;
+           
 
-            Epn epn = new Epn();
-            epn.name = txtEPN.Text;
+                //Test if EPN existe
+                if (SqliteDataAccess.ModelEpnExists(txtEPN.Text)) MessageBox.Show("Epn already Exist");
 
-            if (switchIsClip.Checked)
-            {
-                isConnector = false;
-            }
+                // Insert EPN
 
-            if (!isConnector) epn.isConnector = 0;
+                bool isConnector = true;
 
-            int idEpn =  SqliteDataAccess.SaveEpns(epn);
+                Epn epn = new Epn();
+                epn.name = txtEPN.Text;
 
-
-            //copy pictures
-
-            try
-            {
-                File.Copy(picTopSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_TopSide" + Path.GetExtension(picTopFile.FileName));
-                File.Copy(picBottomSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_BottomSide" + Path.GetExtension(picBottomFile.FileName));
-                File.Copy(picfrontSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_FrontSide" + Path.GetExtension(picFrontFile.FileName));
-
-                if (picBackFile != null)
+                if (switchIsClip.Checked)
                 {
-                    File.Copy(picBackSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_BackSide" + Path.GetExtension(picBackFile.FileName));
+                    isConnector = false;
                 }
 
-                if (picLeftFile != null)
+                if (!isConnector) epn.isConnector = 0;
+
+                int idEpn = SqliteDataAccess.SaveEpns(epn);
+
+                //copy pictures
+
+                try
                 {
-                    File.Copy(picLeftSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_LeftSide" + Path.GetExtension(picLeftFile.FileName));
+                    File.Copy(picTopSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + idEpn + "_TopSide" + Path.GetExtension(picTopSide.ImageLocation),true);
+                    File.Copy(picBottomSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + idEpn + "_BottomSide" + Path.GetExtension(picBottomSide.ImageLocation),true);
+                    File.Copy(picFrontSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + idEpn + "_FrontSide" + Path.GetExtension(picFrontSide.ImageLocation),true);
+
+                    if (picBackSide.ImageLocation != null)
+                    {
+                        File.Copy(picBackSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + idEpn + "_BackSide" + Path.GetExtension(picBackSide.ImageLocation),true);
+                    }
+
+                    if (picLeftSide.ImageLocation != null)
+                    {
+                        File.Copy(picLeftSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + idEpn + "_LeftSide" + Path.GetExtension(picLeftSide.ImageLocation),true);
+                    }
+
+                    if (picRightSide.ImageLocation != null)
+                    {
+                        File.Copy(picRightSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + idEpn + "_RightSide" + Path.GetExtension(picRightSide.ImageLocation),true);
+                    }
+
+                }
+                catch (System.IO.IOException ex)
+                {
+                    MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    return;
                 }
 
-                if (picRightFile != null)
+
+                // Insert Pictures
+                Picture picture = new Picture();
+                picture.epn_id = idEpn;
+
+                picture.top_side = txtEPN.Text + "_TopSide" + Path.GetExtension(picTopSide.ImageLocation);
+                picture.bottom_side = txtEPN.Text + "_BottomSide" + Path.GetExtension(picBottomSide.ImageLocation);
+                picture.front_side = txtEPN.Text + "_FrontSide" + Path.GetExtension(picFrontSide.ImageLocation);
+
+                if (picBackSide.ImageLocation != null)
                 {
-                    File.Copy(picRightSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_RightSide" + Path.GetExtension(picRightFile.FileName));
+                    picture.back_side = txtEPN.Text + "_BackSide" + Path.GetExtension(picBackSide.ImageLocation);
                 }
 
-            }
-            catch (System.IO.IOException ex)
-            {
-                MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (picLeftSide.ImageLocation != null)
+                {
+                    picture.left_side = txtEPN.Text + "_LeftSide" + Path.GetExtension(picLeftSide.ImageLocation);
+                }
 
-                return;
-            }
+                if (picRightSide.ImageLocation != null)
+                {
+                    picture.right_side = txtEPN.Text + "_RightSide" + Path.GetExtension(picRightSide.ImageLocation);
+                }
+
+                SqliteDataAccess.SaveEpnsPictures(picture);
+
             
 
-            // Insert Pictures
-            Picture picture =  new Picture();
-            picture.epn_id = idEpn;
 
-            /*picture.front_side = Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_FrontSide" + Path.GetExtension(picFrontFile.FileName);
-            picture.back_side = Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_BackSide" + Path.GetExtension(picBackFile.FileName);
-            picture.left_side = Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_LeftSide" + Path.GetExtension(picLeftFile.FileName);
-            picture.right_side = Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_RightSide" + Path.GetExtension(picRightFile.FileName);
-            picture.top_side = Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_TopSide" + Path.GetExtension(picTopFile.FileName);
-            picture.bottom_side = Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_BottomSide" + Path.GetExtension(picBottomFile.FileName);*/
-
-
-           /* picture.top_side = "\\\\MaTAN-FP01\\Groups\\Dep\\Machine Book\\New Machine book\\Poka\\Pictures\\" + txtEPN.Text + "_TopSide" + Path.GetExtension(picTopFile.FileName);
-            picture.bottom_side = "\\\\MaTAN-FP01\\Groups\\Dep\\Machine Book\\New Machine book\\Poka\\Pictures\\" + txtEPN.Text + "_BottomSide" + Path.GetExtension(picBottomFile.FileName);
-            picture.front_side = "\\\\MaTAN-FP01\\Groups\\Dep\\Machine Book\\New Machine book\\Poka\\Pictures\\" + txtEPN.Text + "_FrontSide" + Path.GetExtension(picFrontFile.FileName);
-
-            if (picBackFile != null)
-            {
-                picture.back_side = "\\\\MaTAN-FP01\\Groups\\Dep\\Machine Book\\New Machine book\\Poka\\Pictures\\" + txtEPN.Text + "_BackSide" + Path.GetExtension(picBackFile.FileName);
-            }
-
-            if (picLeftFile != null)
-            {
-                picture.left_side = "\\\\MaTAN-FP01\\Groups\\Dep\\Machine Book\\New Machine book\\Poka\\Pictures\\" + txtEPN.Text + "_LeftSide" + Path.GetExtension(picLeftFile.FileName);
-            }
-
-            if (picRightFile != null)
-            {
-                picture.right_side = "\\\\MaTAN-FP01\\Groups\\Dep\\Machine Book\\New Machine book\\Poka\\Pictures\\" + txtEPN.Text + "_RightSide" + Path.GetExtension(picRightFile.FileName);
-            }*/
-
-            picture.top_side = txtEPN.Text + "_TopSide" + Path.GetExtension(picTopFile.FileName);
-            picture.bottom_side =  txtEPN.Text + "_BottomSide" + Path.GetExtension(picBottomFile.FileName);
-            picture.front_side =  txtEPN.Text + "_FrontSide" + Path.GetExtension(picFrontFile.FileName);
-
-            if (picBackFile != null)
-            {
-                picture.back_side =  txtEPN.Text + "_BackSide" + Path.GetExtension(picBackFile.FileName);
-            }
-
-            if (picLeftFile != null)
-            {
-                picture.left_side =  txtEPN.Text + "_LeftSide" + Path.GetExtension(picLeftFile.FileName);
-            }
-
-            if (picRightFile != null)
-            {
-                picture.right_side = txtEPN.Text + "_RightSide" + Path.GetExtension(picRightFile.FileName);
-            }
-
-
-            SqliteDataAccess.SaveEpnsPictures(picture);
-
+            
+          
 
             //Update Tables
             FillDataGrideViewEpn();
@@ -185,15 +164,15 @@ namespace Pokayoke_Matrix
             picRightSide.ImageLocation = "";
             picTopSide.ImageLocation = "";
             picBottomSide.ImageLocation = "";
-            picfrontSide.ImageLocation = "";
+            picFrontSide.ImageLocation = "";
             picBackSide.ImageLocation = "";
 
-            picFrontFile = null;
+            /*picFrontFile = null;
             picBackFile = null;
             picRightFile = null;
             picLeftFile = null;
             picTopFile = null;
-            picBottomFile = null;
+            picBottomFile = null;*/
 
 
         }
@@ -289,47 +268,81 @@ namespace Pokayoke_Matrix
 
         private void picRightSide_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Title = "Right Side";
-            openFileDialog1.ShowDialog();
-            this.picRightFile = openFileDialog1;
-            picRightSide.ImageLocation = this.picRightFile.FileName;
+           
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Picture (*.jpeg, .jpg, .png)|*.jpeg;*.jpg;*.png",
+            };
+            openFileDialog.Title = "Right Side";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                picRightSide.ImageLocation = openFileDialog.FileName;
+            }
         }
 
         private void picLeftSide_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Title = "Left Side";
-            openFileDialog1.ShowDialog();
-            this.picLeftFile = openFileDialog1;
-            picLeftSide.ImageLocation = this.picLeftFile.FileName;
+           
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Picture (*.jpeg, .jpg, .png)|*.jpeg;*.jpg;*.png",
+            };
+            openFileDialog.Title = "Left Side";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                picLeftSide.ImageLocation = openFileDialog.FileName;
+            }
         }
 
         private void picTopSide_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Title = "Top Side";
-            openFileDialog1.ShowDialog();
-            this.picTopFile = openFileDialog1;
-            picTopSide.ImageLocation = this.picTopFile.FileName;
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Picture (*.jpeg, .jpg, .png)|*.jpeg;*.jpg;*.png",
+            };
+            openFileDialog.Title = "Top Side";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                picTopSide.ImageLocation = openFileDialog.FileName;
+            }
         }
 
         private void picBottomSide_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Title = "Bottom Side";
-            openFileDialog1.ShowDialog();
-            this.picBottomFile = openFileDialog1;
-            picBottomSide.ImageLocation = this.picBottomFile.FileName;
+
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Picture (*.jpeg, .jpg, .png)|*.jpeg;*.jpg;*.png",
+            };
+            openFileDialog.Title = "Bottom Side";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                picBottomSide.ImageLocation = openFileDialog.FileName;
+            }
         }
 
         private void picBackSide_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Title = "Back Side";
-            openFileDialog1.ShowDialog();
-            this.picBackFile = openFileDialog1;
-            picBackSide.ImageLocation = this.picFrontFile.FileName;
+            
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Picture (*.jpeg, .jpg, .png)|*.jpeg;*.jpg;*.png",
+            };
+            openFileDialog.Title = "Back Side";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                picBackSide.ImageLocation = openFileDialog.FileName;
+            }
+               
         }
 
         private void Form1_SizeChanged(object sender, EventArgs e)
         {
-            Console.WriteLine(tableLayoutPanel1.Width);
             tableLayoutPanel1.Height = tableLayoutPanel1.Width / 6;
         }
 
@@ -343,7 +356,7 @@ namespace Pokayoke_Matrix
      
                 pokayoke.picture.back_side = Application.StartupPath + "\\Pictures\\" + epn.back_side;
                 pokayoke.picture.front_side = Application.StartupPath + "\\Pictures\\" + epn.front_side;
-                pokayoke.picture.left_side = Application.StartupPath + "\\Pictures\\" + epn.front_side;
+                pokayoke.picture.left_side = Application.StartupPath + "\\Pictures\\" + epn.left_side;
                 pokayoke.picture.right_side = Application.StartupPath + "\\Pictures\\" + epn.right_side;
                 pokayoke.picture.top_side = Application.StartupPath + "\\Pictures\\" + epn.top_side;
                 pokayoke.picture.bottom_side = Application.StartupPath + "\\Pictures\\" + epn.bottom_side;
@@ -468,6 +481,7 @@ namespace Pokayoke_Matrix
 
             //fill not pokayoke table
 
+           
             int isConnector = 1;
             if (dgvAllConfig.SelectedCells[2].Value.ToString() != "Connector")
             {
@@ -478,7 +492,7 @@ namespace Pokayoke_Matrix
             datatabelNotPokayoke.Columns.Add("Name", typeof(string));
 
 
-            foreach (Epn epn in SqliteDataAccess.LoadEpns("SELECT tb_epns.id, tb_epns.name FROM tb_epns WHERE tb_epns.isConnector = "+isConnector+" and tb_epns.id NOT IN( SELECT tb_pokayoke.epn1_id FROM tb_epns INNER JOIN tb_pokayoke ON tb_epns.id = tb_pokayoke.epn1_id or tb_epns.id = tb_pokayoke.epn2_id WHERE tb_epns.id = "+epn_id+"   UNION SELECT tb_pokayoke.epn2_id FROM tb_epns INNER JOIN tb_pokayoke ON tb_epns.id = tb_pokayoke.epn1_id or tb_epns.id = tb_pokayoke.epn2_id WHERE tb_epns.id = "+epn_id+") AND tb_epns.id !="+ epn_id))
+            foreach (Epn epn in SqliteDataAccess.LoadEpns("SELECT tb_epns.id, tb_epns.name FROM tb_epns WHERE tb_epns.isConnector = "+isConnector+" and tb_epns.id NOT IN( SELECT tb_pokayoke.epn1_id FROM tb_epns INNER JOIN tb_pokayoke ON tb_epns.id = tb_pokayoke.epn1_id or tb_epns.id = tb_pokayoke.epn2_id WHERE tb_epns.id = "+epn_id+ " and tb_pokayoke.project_id = "+project_id+"  UNION SELECT tb_pokayoke.epn2_id FROM tb_epns INNER JOIN tb_pokayoke ON tb_epns.id = tb_pokayoke.epn1_id or tb_epns.id = tb_pokayoke.epn2_id WHERE tb_epns.id = " + epn_id+ " and tb_pokayoke.project_id = "+project_id+") AND tb_epns.id !=" + epn_id))
             {
                 datatabelNotPokayoke.Rows.Add(epn.id, epn.name);
             }
@@ -517,8 +531,9 @@ namespace Pokayoke_Matrix
 
         private void btnRemovePokayoke_Click(object sender, EventArgs e)
         {
+            int project_id = ((KeyValuePair<int, string>)comboBoxProjects.SelectedItem).Key;
             if (dgvPokayoke.Rows.Count < 1) return;
-            SqliteDataAccess.DeletePokayoke((int)dgvAllConfig.SelectedCells[0].Value, (int)dgvPokayoke.SelectedCells[0].Value);
+            SqliteDataAccess.DeletePokayoke((int)dgvAllConfig.SelectedCells[0].Value, (int)dgvPokayoke.SelectedCells[0].Value,project_id);
 
             FillDataGrideViewConnectors();
             FillDataGrideViewClips();
@@ -619,6 +634,7 @@ namespace Pokayoke_Matrix
 
         private void btnExportClips_Click(object sender, EventArgs e)
         {
+
         }
 
        
@@ -634,7 +650,7 @@ namespace Pokayoke_Matrix
 
                 pokayoke.picture.back_side = epn.back_side;
                 pokayoke.picture.front_side = epn.front_side;
-                pokayoke.picture.left_side = epn.front_side;
+                pokayoke.picture.left_side = epn.left_side;
                 pokayoke.picture.right_side = epn.right_side;
                 pokayoke.picture.top_side = epn.top_side;
                 pokayoke.picture.bottom_side = epn.bottom_side;
@@ -644,8 +660,113 @@ namespace Pokayoke_Matrix
             pokayoke.ShowDialog();
         }
 
-        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+
+
+        private void dgvAllEpn_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            btnUpdateEPN.Visible = true;
+            btnAddEPN.Visible = false;
+
+            //var path pictures
+
+            string pathBack, pathFront, pathRight, pathLeft, pathTop, pathBottom;
+
+            int epn_id = (int)dgvAllEpn.SelectedCells[0].Value;
+            lblEpn_id.Text = epn_id.ToString();
+            txtEPN.Text = dgvAllEpn.SelectedCells[1].Value.ToString();
+
+            switchIsClip.Checked = false;
+            if ((string)dgvAllEpn.SelectedCells[2].Value == "Clip")
+            {
+                switchIsClip.Checked = true;
+            }
+
+            //Initial images
+            /* picBackSide.Image = null;
+             picFrontSide.Image = null;
+             picLeftSide.Image = null;
+             picRightSide.Image = null;
+             picTopSide.Image = null;
+             picBottomSide.Image = null;*/
+
+            pathBack = Application.StartupPath + "\\Pictures\\" + epn_id + "_BackSide.jpg";
+            pathFront = Application.StartupPath + "\\Pictures\\" + epn_id + "_FrontSide.jpg";
+            pathLeft = Application.StartupPath + "\\Pictures\\" + epn_id + "_LeftSide.jpg";
+            pathRight = Application.StartupPath + "\\Pictures\\" + epn_id + "_RightSide.jpg";
+            pathTop = Application.StartupPath + "\\Pictures\\" + epn_id + "_TopSide.jpg";
+            pathBottom = Application.StartupPath + "\\Pictures\\" + epn_id + "_BottomSide.jpg";
+
+        /*    pathBack = Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_BackSide.jpg";
+            pathFront = Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_FrontSide.jpg";
+            pathLeft = Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_LeftSide.jpg";
+            pathRight = Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_RightSide.jpg";
+            pathTop = Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_TopSide.jpg";
+            pathBottom = Application.StartupPath + "\\Pictures\\" + txtEPN.Text + "_BottomSide.jpg";*/
+
+
+            if (File.Exists(pathBack))
+            {
+                picBackSide.ImageLocation = pathBack;
+                btnTheme(btnBackPicture, picBackSide, "add");
+            }
+            else
+            {
+
+                btnTheme(btnBackPicture, picBackSide, "del");
+            }
+
+
+            if (File.Exists(pathFront)) 
+            { 
+                picFrontSide.ImageLocation = pathFront;
+                btnTheme(btnFrontPicture, picFrontSide, "add");
+            }
+            else
+            {
+                btnTheme(btnFrontPicture, picFrontSide, "del");
+            }
+
+            if (File.Exists(pathLeft))
+            {
+                picLeftSide.ImageLocation = pathLeft;
+                btnTheme(btnLeftPicture, picLeftSide, "add");
+            }
+            else
+            {
+                btnTheme(btnLeftPicture, picLeftSide, "del");
+            }
+
+            if (File.Exists(pathRight))
+            {
+                picRightSide.ImageLocation = pathRight;
+                btnTheme(btnRightPicture, picRightSide, "add");
+            }
+            else
+            {
+                btnTheme(btnRightPicture, picRightSide, "del");
+            }
+
+
+            if (File.Exists(pathTop))
+            {
+                picTopSide.ImageLocation = pathTop;
+                btnTheme(btnTopPicture, picTopSide, "add");
+            }
+            else
+            {
+                btnTheme(btnTopPicture, picTopSide, "del");
+            }
+
+
+            if (File.Exists(pathBottom))
+            {
+                picBottomSide.ImageLocation = pathBottom;
+                btnTheme(btnBottomPicture, picBottomSide, "add");
+            }
+            else
+            {
+                btnTheme(btnBottomPicture, picBottomSide, "del");
+            }
 
         }
 
@@ -699,17 +820,191 @@ namespace Pokayoke_Matrix
 
         private void picfrontSide_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Title = "Front Side";
-            openFileDialog1.ShowDialog();
-            this.picFrontFile = openFileDialog1;
-            picfrontSide.ImageLocation = this.picFrontFile.FileName;
+            OpenFileDialog openFileDialog = new OpenFileDialog { 
+            Filter = "Picture (*.jpeg, .jpg, .png)|*.jpeg;*.jpg;*.png",
+            };
+            openFileDialog.Title = "Front Side";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                picFrontSide.ImageLocation = openFileDialog.FileName;
+            }
+
         }
 
-        private void gunaButton1_Click(object sender, EventArgs e)
+        private void txtSearchEPNNotSimilar_TextChanged(object sender, EventArgs e)
         {
-           Console.WriteLine( this.picFrontFile.FileName);
+            (dgvNotPokayoke.DataSource as DataTable).DefaultView.RowFilter = String.Format("Name like '%" + txtSearchEPNNotSimilar.Text + "%'");
         }
 
-     
+        private void txtSearchEPNSimilar_TextChanged(object sender, EventArgs e)
+        {
+            (dgvPokayoke.DataSource as DataTable).DefaultView.RowFilter = String.Format("Name like '%" + txtSearchEPNSimilar.Text + "%'");
+        }
+
+        private void btnFrontPicture_Click(object sender, EventArgs e)
+        {
+            if (btnFrontPicture.Text == "+ Add" && picFrontSide.Image != null)
+            {
+                File.Copy(picFrontSide.ImageLocation,Application.StartupPath+"\\Pictures\\"+lblEpn_id.Text+"_FrontSide.jpg");
+                btnTheme(btnFrontPicture,picFrontSide,"add");
+                return;
+            }
+
+            if (btnFrontPicture.Text == "- Delete" && picFrontSide.Image != null)
+            {
+                File.Delete(picFrontSide.ImageLocation);
+                btnTheme(btnFrontPicture, picFrontSide, "del");
+                return;
+            }
+        }
+
+        public void btnTheme(GunaButton btnPicture,GunaPictureBox pictureBox,string type)
+        {
+            if (type == "add")
+            {
+                pictureBox.Enabled = false;
+                btnPicture.Visible = true;
+                btnPicture.BaseColor = Color.Red;
+                btnPicture.OnHoverBaseColor = Color.FromArgb(255, 128, 128);
+                btnPicture.Text = "- Delete";
+                btnPicture.ForeColor = Color.White;
+            }
+            else
+            {
+                btnPicture.Visible = true;
+                btnPicture.BaseColor = Color.Lime;
+                btnPicture.OnHoverBaseColor = Color.FromArgb(128, 255, 128);
+                btnPicture.Text = "+ Add";
+                btnPicture.ForeColor = Color.Black;
+                btnPicture.OnHoverForeColor = Color.Black;
+                pictureBox.Enabled = true;
+                pictureBox.Image = null;
+            }
+        }
+
+        private void btnUpdateEPN_Click(object sender, EventArgs e)
+        {
+            bool isConnector = true;
+
+            Epn epn = new Epn();
+            epn.name = txtEPN.Text;
+            epn.id = Int32.Parse(lblEpn_id.Text);
+
+            if (switchIsClip.Checked)
+            {
+                isConnector = false;
+            }
+
+            if (!isConnector) epn.isConnector = 0;
+
+            SqliteDataAccess.UpdateEpns(epn);
+
+            btnUpdateEPN.Visible = false;
+            btnAddEPN.Visible = true;
+
+            btnFrontPicture.Visible = false;
+            btnBackPicture.Visible = false;
+            btnBottomPicture.Visible = false;
+            btnTopPicture.Visible = false;
+            btnLeftPicture.Visible = false;
+            btnRightPicture.Visible = false;
+
+            picBackSide.Enabled = false;
+            picBottomSide.Enabled = false;
+            picFrontSide.Enabled = false;
+            picRightSide.Enabled = false;
+            picTopSide.Enabled = false;
+            picLeftSide.Enabled = false;
+
+            //Update Tables
+            FillDataGrideViewEpn();
+            FillDataGrideViewClips();
+            FillDataGrideViewConnectors();
+        }
+
+        private void btnRightPicture_Click(object sender, EventArgs e)
+        {
+            if (btnRightPicture.Text == "+ Add" && picRightSide.Image != null)
+            {
+                File.Copy(picRightSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + lblEpn_id.Text + "_RightSide.jpg");
+                btnTheme(btnRightPicture, picRightSide, "add");
+                return;
+            }
+
+
+            if (btnRightPicture.Text == "- Delete" && picRightSide.Image != null)
+            {
+                File.Delete(picRightSide.ImageLocation);
+                btnTheme(btnRightPicture, picRightSide, "del");
+                return;
+            }
+        }
+
+        private void btnLeftPicture_Click(object sender, EventArgs e)
+        {
+            if (btnLeftPicture.Text == "+ Add" && picLeftSide.Image != null)
+            {
+                File.Copy(picLeftSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + lblEpn_id.Text + "_LeftSide.jpg");
+                btnTheme(btnLeftPicture, picLeftSide, "add");
+                return;
+            }
+
+            if (btnLeftPicture.Text == "-Delete" && picLeftSide.Image != null)
+            {
+                File.Delete(picLeftSide.ImageLocation);
+                btnTheme(btnLeftPicture, picLeftSide, "del");
+                return;
+            }
+        }
+
+        private void btnTopPicture_Click(object sender, EventArgs e)
+        {
+            if (btnTopPicture.Text == "+ Add" && picTopSide.Image != null)
+            {
+                File.Copy(picTopSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + lblEpn_id.Text + "_TopSide.jpg");
+                btnTheme(btnTopPicture, picTopSide, "add");
+                return;
+            }
+            if (btnTopPicture.Text == "- Delete" && picTopSide.Image != null)
+            {
+                File.Delete(picTopSide.ImageLocation);
+                btnTheme(btnTopPicture, picTopSide, "del");
+                return;
+            }
+        }
+
+        private void btnBottomPicture_Click(object sender, EventArgs e)
+        {
+            if (btnBottomPicture.Text == "+ Add" && picBottomSide.Image != null)
+            {
+                File.Copy(picBottomSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + lblEpn_id.Text + "_BottomSide.jpg");
+                btnTheme(btnBottomPicture, picBottomSide, "add");
+                return;
+            }
+
+            if (btnBottomPicture.Text == "- Delete" && picBottomSide.Image != null)
+            {
+                File.Delete(picBottomSide.ImageLocation);
+                btnTheme(btnBottomPicture, picBottomSide, "del");
+                return;
+            }
+        }
+
+        private void btnBackPicture_Click(object sender, EventArgs e)
+        {
+            if (btnBackPicture.Text == "+ Add" && picBackSide.Image != null)
+            {
+                File.Copy(picBackSide.ImageLocation, Application.StartupPath + "\\Pictures\\" + lblEpn_id.Text + "_BackSide.jpg");
+                btnTheme(btnBackPicture, picBackSide, "add");
+                return;
+            }
+            if (btnBackPicture.Text == "- Delete" && picBackSide.Image != null)
+            {
+                File.Delete(picBackSide.ImageLocation);
+                btnTheme(btnBackPicture, picBackSide, "del");
+                return;
+            }
+        }
     }
 }

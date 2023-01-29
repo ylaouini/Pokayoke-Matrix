@@ -42,7 +42,7 @@
             this.gunaLabel1.Font = new System.Drawing.Font("AktivGrotesk-Light", 12F);
             this.gunaLabel1.Location = new System.Drawing.Point(31, 26);
             this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(99, 19);
+            this.gunaLabel1.Size = new System.Drawing.Size(122, 23);
             this.gunaLabel1.TabIndex = 3;
             this.gunaLabel1.Text = "Personnel ID";
             // 
@@ -52,7 +52,7 @@
             this.gunaLabel2.Font = new System.Drawing.Font("AktivGrotesk-Light", 12F);
             this.gunaLabel2.Location = new System.Drawing.Point(32, 111);
             this.gunaLabel2.Name = "gunaLabel2";
-            this.gunaLabel2.Size = new System.Drawing.Size(77, 19);
+            this.gunaLabel2.Size = new System.Drawing.Size(98, 23);
             this.gunaLabel2.TabIndex = 4;
             this.gunaLabel2.Text = "Password";
             // 
@@ -88,7 +88,7 @@
             this.lblError.ForeColor = System.Drawing.Color.Red;
             this.lblError.Location = new System.Drawing.Point(32, 253);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(32, 15);
+            this.lblError.Size = new System.Drawing.Size(41, 20);
             this.lblError.TabIndex = 6;
             this.lblError.Text = "Error";
             this.lblError.Visible = false;
@@ -111,6 +111,7 @@
             this.txtPersonnelID.SelectedText = "";
             this.txtPersonnelID.Size = new System.Drawing.Size(206, 37);
             this.txtPersonnelID.TabIndex = 1;
+            this.txtPersonnelID.Text = "123";
             this.txtPersonnelID.TextOffsetX = 35;
             // 
             // txtPassword
@@ -132,12 +133,13 @@
             this.txtPassword.Size = new System.Drawing.Size(206, 37);
             this.txtPassword.TabIndex = 2;
             this.txtPassword.Tag = "2";
+            this.txtPassword.Text = "password";
             this.txtPassword.TextOffsetX = 35;
             // 
             // Form_login
             // 
             this.AcceptButton = this.btnLogin;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(286, 287);
             this.Controls.Add(this.txtPassword);

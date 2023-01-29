@@ -106,6 +106,18 @@ namespace Pokayoke_Matrix
             }
         }
 
+        public static int UpdateEpns(Epn epn)
+        {
+            using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                string query = @"update tb_epns set name= '"+epn.name+"', isConnector = '"+epn.isConnector+"', updated_by = '"+epn.updated_by+"', updated_at = '"+epn.updated_at+"' where id = "+epn.id+"";
+                //Console.WriteLine("test:"+query);
+                int lastId = Convert.ToInt32(cnn.ExecuteScalar(query, epn));
+
+                return lastId;
+            }
+        }
+
         //picture
 
         public static void SaveEpnsPictures(Picture picture)
@@ -119,6 +131,17 @@ namespace Pokayoke_Matrix
 
             }
         }
+
+        public static void UpdateEpnsPictures(Picture picture,int epn_id)
+        {
+            using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                int lastId = Convert.ToInt32(cnn.ExecuteScalar(@"UPDATE tb_pictures SET front_side = '@front_side', right_side = '@right_side', left_side = '@left_side', top_side = '@top_side', bottom_side = '@bottom_side', back_side = '@back_side' 
+                            where epn_id = "+epn_id, picture));
+
+            }
+        }
+
 
         //pokayoke
 
@@ -145,11 +168,11 @@ namespace Pokayoke_Matrix
             }
         }
 
-        public static void DeletePokayoke(int epn1, int epn2)
+        public static void DeletePokayoke(int epn1, int epn2, int project_id)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                cnn.Query("DELETE FROM tb_pokayoke WHERE tb_pokayoke.epn1_id = " + epn1 + " and tb_pokayoke.epn2_id = " + epn2 + " OR tb_pokayoke.epn1_id = " + epn2 + " and tb_pokayoke.epn2_id = " + epn1 + "", new DynamicParameters());
+                cnn.Query("DELETE FROM tb_pokayoke WHERE (tb_pokayoke.epn1_id = " + epn1 + " and tb_pokayoke.epn2_id = " + epn2 + " and tb_pokayoke.project_id = "+project_id+") OR (tb_pokayoke.epn1_id = " + epn2 + " and tb_pokayoke.epn2_id = " + epn1 + " and tb_pokayoke.project_id = "+project_id+")", new DynamicParameters());
             }
         }
 
