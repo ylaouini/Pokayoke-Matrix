@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -351,16 +352,25 @@ namespace Pokayoke_Matrix
             Form_pokayoke pokayoke = new Form_pokayoke();
             
             int epn_id = (int)dgvConnectors.SelectedCells[0].Value;
-            foreach (Epn epn in SqliteDataAccess.LoadEpns("SELECT * FROM tb_epns INNER JOIN (tb_pictures) ON tb_epns.id = tb_pictures.epn_id WHERE tb_epns.id="+epn_id))
+
+            pokayoke.picture.back_side = Application.StartupPath + "\\Pictures\\" + epn_id + "_BackSide.jpg";
+            pokayoke.picture.front_side = Application.StartupPath + "\\Pictures\\" + epn_id + "_FrontSide.jpg";
+            pokayoke.picture.left_side = Application.StartupPath + "\\Pictures\\" + epn_id + "_LeftSide.jpg";
+            pokayoke.picture.right_side = Application.StartupPath + "\\Pictures\\" + epn_id + "_RightSide.jpg";
+            pokayoke.picture.top_side = Application.StartupPath + "\\Pictures\\" + epn_id + "_TopSide.jpg";
+            pokayoke.picture.bottom_side = Application.StartupPath + "\\Pictures\\" + epn_id + "_BottomSide.jpg";
+          /*  foreach (Epn epn in SqliteDataAccess.LoadEpns("SELECT * FROM tb_epns INNER JOIN (tb_pictures) ON tb_epns.id = tb_pictures.epn_id WHERE tb_epns.id="+epn_id))
             {
-     
-                pokayoke.picture.back_side = Application.StartupPath + "\\Pictures\\" + epn.back_side;
+
+                
+
+                *//*pokayoke.picture.back_side = Application.StartupPath + "\\Pictures\\" + epn.back_side;
                 pokayoke.picture.front_side = Application.StartupPath + "\\Pictures\\" + epn.front_side;
                 pokayoke.picture.left_side = Application.StartupPath + "\\Pictures\\" + epn.left_side;
                 pokayoke.picture.right_side = Application.StartupPath + "\\Pictures\\" + epn.right_side;
                 pokayoke.picture.top_side = Application.StartupPath + "\\Pictures\\" + epn.top_side;
-                pokayoke.picture.bottom_side = Application.StartupPath + "\\Pictures\\" + epn.bottom_side;
-            }
+                pokayoke.picture.bottom_side = Application.StartupPath + "\\Pictures\\" + epn.bottom_side;*//*
+            }*/
            
             pokayoke.epn_id = epn_id;
             pokayoke.ShowDialog();
@@ -804,15 +814,18 @@ namespace Pokayoke_Matrix
             DataTable dt = new DataTable();
             dt.Columns.Add("ID", typeof(int));
             dt.Columns.Add("EPN", typeof(string));
-            dt.Columns.Add("Count of Pokayakes", typeof(int));
+            dt.Columns.Add("Count of Similar", typeof(int));
+            dt.Columns.Add("created by", typeof(string));
            // dt.Columns.Add("Created By", typeof(int));
             dgvConnectors.ColumnHeadersHeight = 25;
 
-             foreach (Epn epn in SqliteDataAccess.LoadEpns("SELECT tb_epns.id, tb_epns.name,count(tb_pokayoke.id) as CountOfPokayoke,tb_epns.created_by FROM tb_epns LEFT JOIN tb_pokayoke ON tb_epns.id = tb_pokayoke.epn1_id or tb_epns.id = tb_pokayoke.epn2_id GROUP BY tb_epns.id  HAVING tb_epns.isConnector = 1"))
-             {
-                // dt.Rows.Add(epn.id, epn.name, epn.CountOfPokayoke, epn.created_by);
-                 dt.Rows.Add(epn.id, epn.name, epn.CountOfPokayoke);
-             }
+
+            foreach (Epn epn in SqliteDataAccess.LoadEpns("SELECT tb_epns.id , tb_epns.name, tb_epns.isConnector, tb_epns.updated_at, tb_users.fullName ,count(tb_epns.id) AS CountOfPokayoke FROM tb_users INNER JOIN (tb_epns INNER JOIN tb_pokayoke ON tb_epns.id = tb_pokayoke.epn1_id or tb_epns.id = tb_pokayoke.epn2_id ) ON tb_users.id = tb_epns.created_by GROUP BY tb_epns.id,tb_epns.name HAVING tb_epns.isConnector=1 AND tb_epns.name LIKE '%" + txtSearchCon.Text + "%'"))
+            {
+                dt.Rows.Add(epn.id, epn.name, epn.CountOfPokayoke, epn.fullName);
+            }
+
+
 
             dgvConnectors.DataSource = dt;
 
@@ -917,7 +930,7 @@ namespace Pokayoke_Matrix
             picTopSide.Enabled = false;
             picLeftSide.Enabled = false;
 
-            //Update Tables
+            //Update Tables  
             FillDataGrideViewEpn();
             FillDataGrideViewClips();
             FillDataGrideViewConnectors();

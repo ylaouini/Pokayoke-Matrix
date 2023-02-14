@@ -28,38 +28,17 @@ namespace Pokayoke_Matrix
         {
             this.epn = SqliteDataAccess.LoadEpn("select * from tb_epns WHERE tb_epns.id = " + epn_id);
 
-            Console.WriteLine(File.Exists(picture.front_side));
             
             lblEpn.Text = epn.name;
-            /* picBackSide.ImageLocation = picture.back_side;
-             picTopSide.ImageLocation = picture.top_side;
-             picLeftSide.ImageLocation = picture.left_side;
-             picRightSide.ImageLocation = picture.right_side;
-             picBottomSide.ImageLocation = picture.bottom_side;
-             picfrontSide .ImageLocation = picture.front_side;*/
 
             picRightSide.ImageLocation = picture.right_side;
             picLeftSide.ImageLocation = picture.left_side;
             picBackSide.ImageLocation = picture.back_side;
+            picBottomSide.ImageLocation = picture.bottom_side;
+            picfrontSide.ImageLocation  = picture.front_side;
+            picTopSide.ImageLocation = picture.top_side;
 
-            try
-            {
-                /*picBackSide.Image = Image.FromFile(picture.back_side);
-                picTopSide.Image = Image.FromFile(picture.top_side);
-                picLeftSide.Image = Image.FromFile(picture.left_side);
-                picRightSide.Image = Image.FromFile(picture.right_side);
-                picBottomSide.Image = Image.FromFile(picture.bottom_side);
-                picfrontSide.Image = Image.FromFile(picture.front_side);*/
 
-                picBottomSide.Image = Image.FromFile(picture.bottom_side);
-                picfrontSide.Image = Image.FromFile(picture.front_side);
-                picTopSide.Image = Image.FromFile(picture.top_side);
-
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.GetType().Name+" (" + ex.Message+")");
-            }
 
             flowLayoutPanel1.Controls.Clear();
             DataTable tableConnector = new DataTable();
@@ -79,31 +58,20 @@ namespace Pokayoke_Matrix
             List<UserControl> ts = new List<UserControl>();
             PokayokeList[] lists = new PokayokeList[epns.Count];
 
-            
-                foreach (Epn epn in epns)
+
+
+            foreach (Epn epn in epns)
             {
                 lists[0] = new PokayokeList();
                 lists[0].lblEpn.Text = epn.name;
 
-                lists[0].picBackSide.ImageLocation = Application.StartupPath + "\\Pictures\\" + epn.back_side ;
-                //lists[0].picBottomSide.ImageLocation = epn.bottom_side;
-                lists[0].picLeftSide.ImageLocation = Application.StartupPath + "\\Pictures\\" + epn.left_side;
-                lists[0].picRightSide.ImageLocation = Application.StartupPath + "\\Pictures\\" + epn.right_side;
-                //lists[0].picTopSide.ImageLocation = epn.top_side;
-                //lists[0].picfrontSide.ImageLocation = epn.front_side;
-                try
-                {
-                    //lists[0].picBackSide.Image = Image.FromFile(Application.StartupPath + "\\Pictures\\" + epn.back_side);
-                    lists[0].picBottomSide.Image = Image.FromFile(Application.StartupPath + "\\Pictures\\" + epn.bottom_side);
-                    //lists[0].picLeftSide.Image = Image.FromFile(Application.StartupPath + "\\Pictures\\" + epn.left_side);
-                    //lists[0].picRightSide.Image = Image.FromFile(Application.StartupPath + "\\Pictures\\" + epn.right_side);
-                    lists[0].picTopSide.Image = Image.FromFile(Application.StartupPath + "\\Pictures\\" + epn.top_side);
-                    lists[0].picfrontSide.Image = Image.FromFile(Application.StartupPath + "\\Pictures\\" + epn.front_side);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.GetType().Name + " (" + ex.Message + ")");
-                }
+                lists[0].picBackSide.ImageLocation = Application.StartupPath + "\\Pictures\\" + epn.id + "_BackSide.jpg";
+                lists[0].picLeftSide.ImageLocation = Application.StartupPath + "\\Pictures\\" + epn.id + "_LeftSide.jpg";
+                lists[0].picRightSide.ImageLocation = Application.StartupPath + "\\Pictures\\" + epn.id + "_RightSide.jpg";
+
+                lists[0].picBottomSide.Image = Image.FromFile(Application.StartupPath + "\\Pictures\\" + epn.id + "_BottomSide.jpg");
+                lists[0].picTopSide.Image = Image.FromFile(Application.StartupPath + "\\Pictures\\" + epn.id + "_TopSide.jpg");
+                lists[0].picfrontSide.Image = Image.FromFile(Application.StartupPath + "\\Pictures\\" + epn.id + "_FrontSide.jpg");
 
 
                 lists[0].lblDateOfPokayokeCreate.Text = SqliteDataAccess.getDateOfPoka(epn.id, epn_id);
